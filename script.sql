@@ -5,7 +5,7 @@
 -- Dumped from database version 10.9
 -- Dumped by pg_dump version 11.2
 
--- Started on 2019-07-29 13:21:15
+-- Started on 2019-07-30 00:23:58
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -18,7 +18,7 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
--- TOC entry 293 (class 1255 OID 26025)
+-- TOC entry 295 (class 1255 OID 26025)
 -- Name: sp_consorcio_cud(character, integer, character varying, character varying, integer); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -85,7 +85,7 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- TOC entry 268 (class 1259 OID 25975)
+-- TOC entry 266 (class 1259 OID 25975)
 -- Name: consorcio; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -101,7 +101,7 @@ CREATE TABLE public.consorcio (
 ALTER TABLE public.consorcio OWNER TO postgres;
 
 --
--- TOC entry 294 (class 1255 OID 26026)
+-- TOC entry 296 (class 1255 OID 26026)
 -- Name: sp_consorcio_get(integer); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -127,7 +127,7 @@ $$;
 ALTER FUNCTION public.sp_consorcio_get(in_id_consorcio integer) OWNER TO postgres;
 
 --
--- TOC entry 295 (class 1255 OID 26027)
+-- TOC entry 297 (class 1255 OID 26027)
 -- Name: sp_consorcios_propietarios_cud(character, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -189,7 +189,7 @@ $$;
 ALTER FUNCTION public.sp_consorcios_propietarios_cud(in_action character, in_id_consorcios_propietarios integer, in_id_propietario integer, in_id_consorcio integer) OWNER TO postgres;
 
 --
--- TOC entry 296 (class 1255 OID 26028)
+-- TOC entry 298 (class 1255 OID 26028)
 -- Name: sp_consorcios_propietarios_get(integer); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -215,7 +215,7 @@ $$;
 ALTER FUNCTION public.sp_consorcios_propietarios_get(in_id_consorcio integer) OWNER TO postgres;
 
 --
--- TOC entry 297 (class 1255 OID 26029)
+-- TOC entry 299 (class 1255 OID 26029)
 -- Name: sp_descuento_transbordo_cud(character, integer, double precision, double precision); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -292,7 +292,7 @@ CREATE TABLE public.descuento_transbordo (
 ALTER TABLE public.descuento_transbordo OWNER TO postgres;
 
 --
--- TOC entry 298 (class 1255 OID 26030)
+-- TOC entry 300 (class 1255 OID 26030)
 -- Name: sp_descuento_transbordo_get(integer); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -318,7 +318,7 @@ $$;
 ALTER FUNCTION public.sp_descuento_transbordo_get(in_id_descuento integer) OWNER TO postgres;
 
 --
--- TOC entry 299 (class 1255 OID 26031)
+-- TOC entry 301 (class 1255 OID 26031)
 -- Name: sp_fideicomiso_cud(character, integer, character varying, character varying, character varying, character varying, character varying); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -401,7 +401,7 @@ CREATE TABLE public.fideicomiso (
 ALTER TABLE public.fideicomiso OWNER TO postgres;
 
 --
--- TOC entry 300 (class 1255 OID 26032)
+-- TOC entry 302 (class 1255 OID 26032)
 -- Name: sp_fideicomisos_get(integer); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -427,7 +427,7 @@ $$;
 ALTER FUNCTION public.sp_fideicomisos_get(in_fideicomiso integer) OWNER TO postgres;
 
 --
--- TOC entry 301 (class 1255 OID 26033)
+-- TOC entry 303 (class 1255 OID 26033)
 -- Name: sp_operadores_cud(character, integer, character varying, character varying, integer, character varying, character varying, character varying); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -512,7 +512,7 @@ CREATE TABLE public.operadores (
 ALTER TABLE public.operadores OWNER TO postgres;
 
 --
--- TOC entry 302 (class 1255 OID 26034)
+-- TOC entry 304 (class 1255 OID 26034)
 -- Name: sp_operadores_get(integer); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -538,7 +538,7 @@ $$;
 ALTER FUNCTION public.sp_operadores_get(in_id_operador integer) OWNER TO postgres;
 
 --
--- TOC entry 303 (class 1255 OID 26035)
+-- TOC entry 305 (class 1255 OID 26035)
 -- Name: sp_propietario_unidad_cud(character, integer, character varying, character varying, character varying, character varying, character varying, integer); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -624,7 +624,7 @@ CREATE TABLE public.propietario_unidad (
 ALTER TABLE public.propietario_unidad OWNER TO postgres;
 
 --
--- TOC entry 304 (class 1255 OID 26036)
+-- TOC entry 306 (class 1255 OID 26036)
 -- Name: sp_propietario_unidad_get(integer); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -650,7 +650,7 @@ $$;
 ALTER FUNCTION public.sp_propietario_unidad_get(in_id_propietario integer) OWNER TO postgres;
 
 --
--- TOC entry 305 (class 1255 OID 26037)
+-- TOC entry 307 (class 1255 OID 26037)
 -- Name: sp_ramales_cud(character, integer, character varying, integer, character varying); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -714,7 +714,7 @@ $$;
 ALTER FUNCTION public.sp_ramales_cud(in_action character, in_id_ramal integer, in_nombre_ramal character varying, in_numero integer, in_kmz_geo character varying) OWNER TO postgres;
 
 --
--- TOC entry 306 (class 1255 OID 26038)
+-- TOC entry 308 (class 1255 OID 26038)
 -- Name: sp_rutas_cud(character, integer, character varying, character varying, character varying); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -777,7 +777,7 @@ $$;
 ALTER FUNCTION public.sp_rutas_cud(in_action character, in_id_ruta integer, in_nombre_ruta_ruta character varying, in_numero_ruta character varying, in_kmz_geo character varying) OWNER TO postgres;
 
 --
--- TOC entry 307 (class 1255 OID 26039)
+-- TOC entry 309 (class 1255 OID 26039)
 -- Name: sp_tarifas_cud(character, integer, character varying, integer, double precision, double precision, double precision); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -842,7 +842,7 @@ $$;
 ALTER FUNCTION public.sp_tarifas_cud(in_action character, in_idtarifa integer, in_concepto character varying, in_aireac integer, in_tarifaac double precision, in_tarifabase double precision, in_tarifatotal double precision) OWNER TO postgres;
 
 --
--- TOC entry 308 (class 1255 OID 26040)
+-- TOC entry 310 (class 1255 OID 26040)
 -- Name: sp_tarifas_get(integer); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -868,7 +868,7 @@ $$;
 ALTER FUNCTION public.sp_tarifas_get(in_id_tarifa integer) OWNER TO postgres;
 
 --
--- TOC entry 309 (class 1255 OID 26041)
+-- TOC entry 311 (class 1255 OID 26041)
 -- Name: sp_unidades_cud(character, integer, character varying, character varying, double precision, integer, character varying, character varying, character varying, integer, integer, integer, integer, integer); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -940,7 +940,7 @@ $$;
 ALTER FUNCTION public.sp_unidades_cud(in_action character, in_id_unidad integer, in_modelo character varying, in_placas character varying, in_kilometraje double precision, in_capacidad integer, in_serie character varying, in_niv character varying, in_descripcion character varying, in_id_propietario integer, in_estado integer, in_id_tarifa integer, in_id_ruta integer, in_id_ramal integer) OWNER TO postgres;
 
 --
--- TOC entry 262 (class 1259 OID 25940)
+-- TOC entry 260 (class 1259 OID 25940)
 -- Name: unidades; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -965,7 +965,7 @@ CREATE TABLE public.unidades (
 ALTER TABLE public.unidades OWNER TO postgres;
 
 --
--- TOC entry 280 (class 1255 OID 26042)
+-- TOC entry 282 (class 1255 OID 26042)
 -- Name: sp_unidades_get(integer); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -991,7 +991,7 @@ $$;
 ALTER FUNCTION public.sp_unidades_get(in_id_unidad integer) OWNER TO postgres;
 
 --
--- TOC entry 310 (class 1255 OID 26043)
+-- TOC entry 312 (class 1255 OID 26043)
 -- Name: sp_usuarios_cud(character, integer, integer, character varying, character varying, character varying, character varying, character varying, integer, character varying); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -1059,7 +1059,7 @@ $$;
 ALTER FUNCTION public.sp_usuarios_cud(in_action character, in_id_usuario integer, in_id_cuenta integer, in_nombre character varying, in_primer_apellido character varying, in_segundo_apellido character varying, in_telefono character varying, in_email character varying, in_id_tipo_usuario integer, in_fotografia_path character varying) OWNER TO postgres;
 
 --
--- TOC entry 264 (class 1259 OID 25951)
+-- TOC entry 262 (class 1259 OID 25951)
 -- Name: usuarios; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -1080,7 +1080,7 @@ CREATE TABLE public.usuarios (
 ALTER TABLE public.usuarios OWNER TO postgres;
 
 --
--- TOC entry 311 (class 1255 OID 26044)
+-- TOC entry 313 (class 1255 OID 26044)
 -- Name: sp_usuarios_get(integer); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -1106,15 +1106,15 @@ $$;
 ALTER FUNCTION public.sp_usuarios_get(in_id_usuario integer) OWNER TO postgres;
 
 --
--- TOC entry 318 (class 1255 OID 26088)
--- Name: ws_asociar_operador_unidad(integer, integer, character varying, character varying); Type: FUNCTION; Schema: public; Owner: postgres
+-- TOC entry 314 (class 1255 OID 26116)
+-- Name: ws_asociar_operador_unidad(character varying, integer, character varying, character varying); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
-CREATE FUNCTION public.ws_asociar_operador_unidad(in_niv integer DEFAULT NULL::integer, in_id_operador integer DEFAULT NULL::integer, in_usuario character varying DEFAULT NULL::character varying, in_password character varying DEFAULT NULL::character varying) RETURNS TABLE(msg character varying)
+CREATE FUNCTION public.ws_asociar_operador_unidad(in_niv character varying DEFAULT NULL::character varying, in_id_operador integer DEFAULT NULL::integer, in_usuario character varying DEFAULT NULL::character varying, in_password character varying DEFAULT NULL::character varying) RETURNS TABLE(msg character varying)
     LANGUAGE plpgsql
     AS $$
 DECLARE
-    acceso INTEGER := 0;
+    acceso character varying := '';
     unidad_activa INTEGER := 0;
     id_selected_unidad INTEGER := 0;
 
@@ -1134,19 +1134,20 @@ BEGIN
             FROM unidades
             WHERE niv = in_niv;
 
-        SELECT COUNT(id_recarga) 
+        SELECT COUNT(id_unidad_operador) 
             INTO unidad_activa
-            FROM recarga
+            FROM unidades_operadores
             WHERE id_operador = in_id_operador AND id_unidad = id_selected_unidad 
                 AND eliminado = 0;
         
-        IF unidad_activa <> 0 THEN
-            UPDATE recarga
-                SET id_operador = in_id_operador
-                WHERE id_recarga = unidad_activa;
-
+        IF unidad_activa < 1 THEN
+            INSERT INTO 
+                unidades_operadores
+                VALUES (id_selected_unidad,in_niv,in_id_operador,NOW(),0);
+			RETURN QUERY
             SELECT '006, “Operador asociado a unidad satisfactoriamente”'::CHARACTER VARYING;
         ELSE
+			RETURN QUERY
             SELECT '007, “La asociación del operador a la unidad ha fallado”'::CHARACTER VARYING;
         END IF;
 
@@ -1155,10 +1156,10 @@ END;
 $$;
 
 
-ALTER FUNCTION public.ws_asociar_operador_unidad(in_niv integer, in_id_operador integer, in_usuario character varying, in_password character varying) OWNER TO postgres;
+ALTER FUNCTION public.ws_asociar_operador_unidad(in_niv character varying, in_id_operador integer, in_usuario character varying, in_password character varying) OWNER TO postgres;
 
 --
--- TOC entry 314 (class 1255 OID 26071)
+-- TOC entry 316 (class 1255 OID 26071)
 -- Name: ws_consultar_administradores(character varying, character varying, character varying); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -1214,7 +1215,7 @@ $$;
 ALTER FUNCTION public.ws_consultar_administradores(in_niv character varying, in_usuario character varying, in_password character varying) OWNER TO postgres;
 
 --
--- TOC entry 315 (class 1255 OID 26077)
+-- TOC entry 317 (class 1255 OID 26077)
 -- Name: ws_consultar_catalogo_servicios(character varying, character varying, character varying); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -1264,7 +1265,7 @@ $$;
 ALTER FUNCTION public.ws_consultar_catalogo_servicios(in_niv character varying, in_usuario character varying, in_password character varying) OWNER TO postgres;
 
 --
--- TOC entry 317 (class 1255 OID 26074)
+-- TOC entry 319 (class 1255 OID 26074)
 -- Name: ws_consultar_datos_operador(integer); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -1302,7 +1303,7 @@ $$;
 ALTER FUNCTION public.ws_consultar_datos_operador(in_id_operador integer) OWNER TO postgres;
 
 --
--- TOC entry 316 (class 1255 OID 26079)
+-- TOC entry 318 (class 1255 OID 26079)
 -- Name: ws_consultar_operador_turno(character varying, character varying, character varying); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -1356,7 +1357,7 @@ $$;
 ALTER FUNCTION public.ws_consultar_operador_turno(in_niv character varying, in_usuario character varying, in_password character varying) OWNER TO postgres;
 
 --
--- TOC entry 319 (class 1255 OID 26085)
+-- TOC entry 320 (class 1255 OID 26085)
 -- Name: ws_consultar_operadores(character varying, character varying, character varying); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -1405,7 +1406,7 @@ $$;
 ALTER FUNCTION public.ws_consultar_operadores(in_niv character varying, in_usuario character varying, in_password character varying) OWNER TO postgres;
 
 --
--- TOC entry 313 (class 1255 OID 26060)
+-- TOC entry 315 (class 1255 OID 26060)
 -- Name: ws_consultar_tarifas(character varying, character varying, character varying); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -1490,15 +1491,15 @@ $$;
 ALTER FUNCTION public.ws_consultar_tarifas(in_niv character varying, in_usuario character varying, in_password character varying) OWNER TO postgres;
 
 --
--- TOC entry 312 (class 1255 OID 26094)
--- Name: ws_registrar_pago(integer, character varying, character varying, character varying, integer, integer, double precision, double precision, double precision, character varying, character varying, date); Type: FUNCTION; Schema: public; Owner: postgres
+-- TOC entry 321 (class 1255 OID 26172)
+-- Name: ws_registrar_pago(character varying, character varying, character varying, character varying, integer, integer, double precision, double precision, double precision, character varying, character varying, date); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
-CREATE FUNCTION public.ws_registrar_pago(in_niv_unidad integer DEFAULT NULL::integer, in_usuario character varying DEFAULT NULL::character varying, in_password character varying DEFAULT NULL::character varying, in_referencia_usuario character varying DEFAULT NULL::character varying, in_id_servicio integer DEFAULT NULL::integer, in_forma_pago integer DEFAULT NULL::integer, in_cantidad double precision DEFAULT NULL::double precision, in_importe double precision DEFAULT NULL::double precision, in_total double precision DEFAULT NULL::double precision, in_denominaciones_recibidas character varying DEFAULT NULL::character varying, in_denominaciones_entregadas character varying DEFAULT NULL::character varying, in_fecha_hora date DEFAULT NULL::date) RETURNS TABLE(msg character varying, id_operacion integer)
+CREATE FUNCTION public.ws_registrar_pago(in_niv_unidad character varying DEFAULT NULL::character varying, in_usuario character varying DEFAULT NULL::character varying, in_password character varying DEFAULT NULL::character varying, in_referencia_usuario character varying DEFAULT NULL::character varying, in_id_servicio integer DEFAULT NULL::integer, in_forma_pago integer DEFAULT NULL::integer, in_cantidad double precision DEFAULT NULL::double precision, in_importe double precision DEFAULT NULL::double precision, in_total double precision DEFAULT NULL::double precision, in_denominaciones_recibidas character varying DEFAULT NULL::character varying, in_denominaciones_entregadas character varying DEFAULT NULL::character varying, in_fecha_hora date DEFAULT NULL::date) RETURNS TABLE(msg character varying, id_operacion integer)
     LANGUAGE plpgsql
     AS $$
 DECLARE
-    acceso integer := 0;
+    acceso character varying := '';
     unidad_activa integer := 0;
     id_operacion integer := 0;
     ultima_transaccion integer := 0;
@@ -1507,7 +1508,7 @@ BEGIN
     SELECT usuario
         INTO acceso
         FROM acceso
-        WHERE niv_unidad = in_niv AND usuario = in_usuario AND contrasena = in_password;
+        WHERE niv_unidad = in_niv_unidad AND usuario = in_usuario AND contrasena = in_password;
         
     IF not found THEN
         RETURN QUERY
@@ -1519,29 +1520,34 @@ BEGIN
             FROM unidades 
             WHERE niv = in_niv_unidad AND eliminado = 0;
 
-        IF id_unidad = 0 THEN
+        IF unidad_activa = 0 THEN
             RETURN QUERY
             SELECT '003, “Unidad inactiva”'::CHARACTER VARYING,
                 null::INTEGER;
         ELSE
             --EFECTIVO
             IF in_forma_pago = 0 THEN
-                SELECT id_transaccion_local
-                    INTO ultima_transaccion
-                    FROM transaccion_local
-                    ORDER BY id_transaccion_local DESC
-                    FETCH FIRST 1 ROW ONLY;
-
-                INSERT INTO transaccion_local (id_transaccion_local, forma_pago, id_servicio,
+				RETURN QUERY
+                INSERT INTO transaccion_local (forma_pago, id_servicio,
+                        cantidad,
                         importe,
+                        total, 
                         fecha_hora,
-                        eliminado)
-                    VALUES(ultima_transaccion+1,in_forma_pago,in_id_servicio,
+                        eliminado,
+                        denominacion_recibida,
+                        denominacion_entregada)
+                    VALUES(in_forma_pago,in_id_servicio,
+                        in_cantidad,
                         in_importe,
+                        in_total,
                         NOW(),
-                        0);
-                SELECT '001, “Operación exitosa”'::CHARACTER VARYING,
-                    ultima_transaccion+1::INTEGER;
+                        0,
+                        in_denominaciones_recibidas,
+                        in_denominaciones_entregadas)
+						returning '001, “Operación exitosa”'::CHARACTER VARYING,
+						id_transaccion_local;
+
+               
             ELSE --TARJETA
             END IF;
         END IF;
@@ -1550,10 +1556,10 @@ END;
 $$;
 
 
-ALTER FUNCTION public.ws_registrar_pago(in_niv_unidad integer, in_usuario character varying, in_password character varying, in_referencia_usuario character varying, in_id_servicio integer, in_forma_pago integer, in_cantidad double precision, in_importe double precision, in_total double precision, in_denominaciones_recibidas character varying, in_denominaciones_entregadas character varying, in_fecha_hora date) OWNER TO postgres;
+ALTER FUNCTION public.ws_registrar_pago(in_niv_unidad character varying, in_usuario character varying, in_password character varying, in_referencia_usuario character varying, in_id_servicio integer, in_forma_pago integer, in_cantidad double precision, in_importe double precision, in_total double precision, in_denominaciones_recibidas character varying, in_denominaciones_entregadas character varying, in_fecha_hora date) OWNER TO postgres;
 
 --
--- TOC entry 277 (class 1259 OID 26053)
+-- TOC entry 275 (class 1259 OID 26053)
 -- Name: acceso; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -1599,7 +1605,7 @@ CREATE SEQUENCE public.administrador_unidad_id_administrador_seq
 ALTER TABLE public.administrador_unidad_id_administrador_seq OWNER TO postgres;
 
 --
--- TOC entry 3203 (class 0 OID 0)
+-- TOC entry 3213 (class 0 OID 0)
 -- Dependencies: 235
 -- Name: administrador_unidad_id_administrador_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -1638,7 +1644,7 @@ CREATE SEQUENCE public.alcancia_seq
 ALTER TABLE public.alcancia_seq OWNER TO postgres;
 
 --
--- TOC entry 266 (class 1259 OID 25964)
+-- TOC entry 264 (class 1259 OID 25964)
 -- Name: alcancias; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -1654,7 +1660,7 @@ CREATE TABLE public.alcancias (
 ALTER TABLE public.alcancias OWNER TO postgres;
 
 --
--- TOC entry 265 (class 1259 OID 25962)
+-- TOC entry 263 (class 1259 OID 25962)
 -- Name: alcancias_id_alcancia_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -1670,8 +1676,8 @@ CREATE SEQUENCE public.alcancias_id_alcancia_seq
 ALTER TABLE public.alcancias_id_alcancia_seq OWNER TO postgres;
 
 --
--- TOC entry 3204 (class 0 OID 0)
--- Dependencies: 265
+-- TOC entry 3214 (class 0 OID 0)
+-- Dependencies: 263
 -- Name: alcancias_id_alcancia_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -1769,7 +1775,7 @@ CREATE SEQUENCE public.cat_cajero_id_cajero_seq
 ALTER TABLE public.cat_cajero_id_cajero_seq OWNER TO postgres;
 
 --
--- TOC entry 3205 (class 0 OID 0)
+-- TOC entry 3215 (class 0 OID 0)
 -- Dependencies: 237
 -- Name: cat_cajero_id_cajero_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -1808,7 +1814,7 @@ CREATE SEQUENCE public.cat_estado_actividad_asignacion_id_estado_actividad_seq
 ALTER TABLE public.cat_estado_actividad_asignacion_id_estado_actividad_seq OWNER TO postgres;
 
 --
--- TOC entry 3206 (class 0 OID 0)
+-- TOC entry 3216 (class 0 OID 0)
 -- Dependencies: 239
 -- Name: cat_estado_actividad_asignacion_id_estado_actividad_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -1847,7 +1853,7 @@ CREATE SEQUENCE public.cat_servicios_id_servicio_seq
 ALTER TABLE public.cat_servicios_id_servicio_seq OWNER TO postgres;
 
 --
--- TOC entry 3207 (class 0 OID 0)
+-- TOC entry 3217 (class 0 OID 0)
 -- Dependencies: 241
 -- Name: cat_servicios_id_servicio_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -1886,7 +1892,7 @@ CREATE SEQUENCE public.cat_tipo_tarjeta_id_tipo_tarjeta_seq
 ALTER TABLE public.cat_tipo_tarjeta_id_tipo_tarjeta_seq OWNER TO postgres;
 
 --
--- TOC entry 3208 (class 0 OID 0)
+-- TOC entry 3218 (class 0 OID 0)
 -- Dependencies: 243
 -- Name: cat_tipo_tarjeta_id_tipo_tarjeta_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -1925,7 +1931,7 @@ CREATE SEQUENCE public.cat_tipo_usuario_id_tipo_usuario_seq
 ALTER TABLE public.cat_tipo_usuario_id_tipo_usuario_seq OWNER TO postgres;
 
 --
--- TOC entry 3209 (class 0 OID 0)
+-- TOC entry 3219 (class 0 OID 0)
 -- Dependencies: 245
 -- Name: cat_tipo_usuario_id_tipo_usuario_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -1934,7 +1940,7 @@ ALTER SEQUENCE public.cat_tipo_usuario_id_tipo_usuario_seq OWNED BY public.cat_t
 
 
 --
--- TOC entry 267 (class 1259 OID 25973)
+-- TOC entry 265 (class 1259 OID 25973)
 -- Name: consorcio_id_consorcio_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -1950,8 +1956,8 @@ CREATE SEQUENCE public.consorcio_id_consorcio_seq
 ALTER TABLE public.consorcio_id_consorcio_seq OWNER TO postgres;
 
 --
--- TOC entry 3210 (class 0 OID 0)
--- Dependencies: 267
+-- TOC entry 3220 (class 0 OID 0)
+-- Dependencies: 265
 -- Name: consorcio_id_consorcio_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -1974,7 +1980,7 @@ CREATE SEQUENCE public.consorcio_seq
 ALTER TABLE public.consorcio_seq OWNER TO postgres;
 
 --
--- TOC entry 270 (class 1259 OID 25986)
+-- TOC entry 268 (class 1259 OID 25986)
 -- Name: consorcios_propietarios; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -1989,7 +1995,7 @@ CREATE TABLE public.consorcios_propietarios (
 ALTER TABLE public.consorcios_propietarios OWNER TO postgres;
 
 --
--- TOC entry 269 (class 1259 OID 25984)
+-- TOC entry 267 (class 1259 OID 25984)
 -- Name: consorcios_propietarios_id_consorcios_propietarios_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -2005,8 +2011,8 @@ CREATE SEQUENCE public.consorcios_propietarios_id_consorcios_propietarios_seq
 ALTER TABLE public.consorcios_propietarios_id_consorcios_propietarios_seq OWNER TO postgres;
 
 --
--- TOC entry 3211 (class 0 OID 0)
--- Dependencies: 269
+-- TOC entry 3221 (class 0 OID 0)
+-- Dependencies: 267
 -- Name: consorcios_propietarios_id_consorcios_propietarios_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -2029,7 +2035,7 @@ CREATE SEQUENCE public.consorcios_propietarios_seq
 ALTER TABLE public.consorcios_propietarios_seq OWNER TO postgres;
 
 --
--- TOC entry 279 (class 1259 OID 26080)
+-- TOC entry 277 (class 1259 OID 26080)
 -- Name: consulta; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -2041,7 +2047,7 @@ CREATE TABLE public.consulta (
 ALTER TABLE public.consulta OWNER TO postgres;
 
 --
--- TOC entry 272 (class 1259 OID 25994)
+-- TOC entry 270 (class 1259 OID 25994)
 -- Name: corte_caja; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -2088,7 +2094,7 @@ CREATE TABLE public.corte_caja (
 ALTER TABLE public.corte_caja OWNER TO postgres;
 
 --
--- TOC entry 271 (class 1259 OID 25992)
+-- TOC entry 269 (class 1259 OID 25992)
 -- Name: corte_caja_id_corte_caja_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -2104,8 +2110,8 @@ CREATE SEQUENCE public.corte_caja_id_corte_caja_seq
 ALTER TABLE public.corte_caja_id_corte_caja_seq OWNER TO postgres;
 
 --
--- TOC entry 3212 (class 0 OID 0)
--- Dependencies: 271
+-- TOC entry 3222 (class 0 OID 0)
+-- Dependencies: 269
 -- Name: corte_caja_id_corte_caja_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -2158,7 +2164,7 @@ CREATE SEQUENCE public.cuenta_seq
 ALTER TABLE public.cuenta_seq OWNER TO postgres;
 
 --
--- TOC entry 274 (class 1259 OID 26005)
+-- TOC entry 272 (class 1259 OID 26005)
 -- Name: cuentas; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -2209,7 +2215,7 @@ CREATE SEQUENCE public.cuentas_bancarias_id_cuenta_bancaria_seq
 ALTER TABLE public.cuentas_bancarias_id_cuenta_bancaria_seq OWNER TO postgres;
 
 --
--- TOC entry 3213 (class 0 OID 0)
+-- TOC entry 3223 (class 0 OID 0)
 -- Dependencies: 247
 -- Name: cuentas_bancarias_id_cuenta_bancaria_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -2218,7 +2224,7 @@ ALTER SEQUENCE public.cuentas_bancarias_id_cuenta_bancaria_seq OWNED BY public.c
 
 
 --
--- TOC entry 273 (class 1259 OID 26003)
+-- TOC entry 271 (class 1259 OID 26003)
 -- Name: cuentas_id_cuenta_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -2234,8 +2240,8 @@ CREATE SEQUENCE public.cuentas_id_cuenta_seq
 ALTER TABLE public.cuentas_id_cuenta_seq OWNER TO postgres;
 
 --
--- TOC entry 3214 (class 0 OID 0)
--- Dependencies: 273
+-- TOC entry 3224 (class 0 OID 0)
+-- Dependencies: 271
 -- Name: cuentas_id_cuenta_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -2259,7 +2265,7 @@ CREATE SEQUENCE public.descuento_transbordo_id_descuento_seq
 ALTER TABLE public.descuento_transbordo_id_descuento_seq OWNER TO postgres;
 
 --
--- TOC entry 3215 (class 0 OID 0)
+-- TOC entry 3225 (class 0 OID 0)
 -- Dependencies: 249
 -- Name: descuento_transbordo_id_descuento_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -2283,7 +2289,7 @@ CREATE SEQUENCE public.descuento_transbordo_seq
 ALTER TABLE public.descuento_transbordo_seq OWNER TO postgres;
 
 --
--- TOC entry 278 (class 1259 OID 26068)
+-- TOC entry 276 (class 1259 OID 26068)
 -- Name: det_administrador_unidad; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -2328,7 +2334,7 @@ CREATE SEQUENCE public.fideicomiso_id_fideicomiso_seq
 ALTER TABLE public.fideicomiso_id_fideicomiso_seq OWNER TO postgres;
 
 --
--- TOC entry 3216 (class 0 OID 0)
+-- TOC entry 3226 (class 0 OID 0)
 -- Dependencies: 251
 -- Name: fideicomiso_id_fideicomiso_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -2443,7 +2449,7 @@ CREATE SEQUENCE public.operadores_id_operador_seq
 ALTER TABLE public.operadores_id_operador_seq OWNER TO postgres;
 
 --
--- TOC entry 3217 (class 0 OID 0)
+-- TOC entry 3227 (class 0 OID 0)
 -- Dependencies: 253
 -- Name: operadores_id_operador_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -2483,7 +2489,7 @@ CREATE SEQUENCE public.propietario_unidad_id_propietario_seq
 ALTER TABLE public.propietario_unidad_id_propietario_seq OWNER TO postgres;
 
 --
--- TOC entry 3218 (class 0 OID 0)
+-- TOC entry 3228 (class 0 OID 0)
 -- Dependencies: 255
 -- Name: propietario_unidad_id_propietario_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -2552,7 +2558,7 @@ CREATE SEQUENCE public.ramales_seq
 ALTER TABLE public.ramales_seq OWNER TO postgres;
 
 --
--- TOC entry 276 (class 1259 OID 26016)
+-- TOC entry 274 (class 1259 OID 26016)
 -- Name: recarga; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -2572,7 +2578,7 @@ CREATE TABLE public.recarga (
 ALTER TABLE public.recarga OWNER TO postgres;
 
 --
--- TOC entry 275 (class 1259 OID 26014)
+-- TOC entry 273 (class 1259 OID 26014)
 -- Name: recarga_id_recarga_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -2588,8 +2594,8 @@ CREATE SEQUENCE public.recarga_id_recarga_seq
 ALTER TABLE public.recarga_id_recarga_seq OWNER TO postgres;
 
 --
--- TOC entry 3219 (class 0 OID 0)
--- Dependencies: 275
+-- TOC entry 3229 (class 0 OID 0)
+-- Dependencies: 273
 -- Name: recarga_id_recarga_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -2706,7 +2712,7 @@ CREATE SEQUENCE public.tarifas_id_tarifa_seq
 ALTER TABLE public.tarifas_id_tarifa_seq OWNER TO postgres;
 
 --
--- TOC entry 3220 (class 0 OID 0)
+-- TOC entry 3230 (class 0 OID 0)
 -- Dependencies: 257
 -- Name: tarifas_id_tarifa_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -2790,27 +2796,32 @@ CREATE SEQUENCE public.tramos_seq
 ALTER TABLE public.tramos_seq OWNER TO postgres;
 
 --
--- TOC entry 260 (class 1259 OID 25929)
+-- TOC entry 278 (class 1259 OID 26097)
 -- Name: transaccion_local; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.transaccion_local (
-    id_transaccion_local integer NOT NULL,
+    identificador_dispositivo character varying,
     numero_tarjeta character varying,
     forma_pago integer,
     id_servicio integer,
     concepto character varying,
+    cantidad double precision,
     importe double precision,
+    total double precision,
     fecha_hora date,
     id_tarjeta integer,
-    eliminado smallint
+    eliminado smallint,
+    denominacion_recibida character varying,
+    denominacion_entregada character varying,
+    id_transaccion_local integer NOT NULL
 );
 
 
 ALTER TABLE public.transaccion_local OWNER TO postgres;
 
 --
--- TOC entry 259 (class 1259 OID 25927)
+-- TOC entry 281 (class 1259 OID 26173)
 -- Name: transaccion_local_id_transaccion_local_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -2826,8 +2837,8 @@ CREATE SEQUENCE public.transaccion_local_id_transaccion_local_seq
 ALTER TABLE public.transaccion_local_id_transaccion_local_seq OWNER TO postgres;
 
 --
--- TOC entry 3221 (class 0 OID 0)
--- Dependencies: 259
+-- TOC entry 3231 (class 0 OID 0)
+-- Dependencies: 281
 -- Name: transaccion_local_id_transaccion_local_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -2880,7 +2891,7 @@ CREATE SEQUENCE public.unidad_seq
 ALTER TABLE public.unidad_seq OWNER TO postgres;
 
 --
--- TOC entry 261 (class 1259 OID 25938)
+-- TOC entry 259 (class 1259 OID 25938)
 -- Name: unidades_id_unidad_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -2896,12 +2907,54 @@ CREATE SEQUENCE public.unidades_id_unidad_seq
 ALTER TABLE public.unidades_id_unidad_seq OWNER TO postgres;
 
 --
--- TOC entry 3222 (class 0 OID 0)
--- Dependencies: 261
+-- TOC entry 3232 (class 0 OID 0)
+-- Dependencies: 259
 -- Name: unidades_id_unidad_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.unidades_id_unidad_seq OWNED BY public.unidades.id_unidad;
+
+
+--
+-- TOC entry 279 (class 1259 OID 26144)
+-- Name: unidades_operadores; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.unidades_operadores (
+    id_unidad integer,
+    niv character varying,
+    id_operador integer,
+    fecha_asignacion date,
+    eliminado integer,
+    id_unidad_operador integer NOT NULL
+);
+
+
+ALTER TABLE public.unidades_operadores OWNER TO postgres;
+
+--
+-- TOC entry 280 (class 1259 OID 26151)
+-- Name: unidades_operadores_id_unidad_operador_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.unidades_operadores_id_unidad_operador_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.unidades_operadores_id_unidad_operador_seq OWNER TO postgres;
+
+--
+-- TOC entry 3233 (class 0 OID 0)
+-- Dependencies: 280
+-- Name: unidades_operadores_id_unidad_operador_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.unidades_operadores_id_unidad_operador_seq OWNED BY public.unidades_operadores.id_unidad_operador;
 
 
 --
@@ -2920,7 +2973,7 @@ CREATE SEQUENCE public.usuario_seq
 ALTER TABLE public.usuario_seq OWNER TO postgres;
 
 --
--- TOC entry 263 (class 1259 OID 25949)
+-- TOC entry 261 (class 1259 OID 25949)
 -- Name: usuarios_id_usuario_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -2936,8 +2989,8 @@ CREATE SEQUENCE public.usuarios_id_usuario_seq
 ALTER TABLE public.usuarios_id_usuario_seq OWNER TO postgres;
 
 --
--- TOC entry 3223 (class 0 OID 0)
--- Dependencies: 263
+-- TOC entry 3234 (class 0 OID 0)
+-- Dependencies: 261
 -- Name: usuarios_id_usuario_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -2960,7 +3013,7 @@ CREATE SEQUENCE public.vueltas_seq
 ALTER TABLE public.vueltas_seq OWNER TO postgres;
 
 --
--- TOC entry 2928 (class 2604 OID 25803)
+-- TOC entry 2935 (class 2604 OID 25803)
 -- Name: administrador_unidad id_administrador; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -2968,7 +3021,7 @@ ALTER TABLE ONLY public.administrador_unidad ALTER COLUMN id_administrador SET D
 
 
 --
--- TOC entry 2943 (class 2604 OID 25967)
+-- TOC entry 2949 (class 2604 OID 25967)
 -- Name: alcancias id_alcancia; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -2976,7 +3029,7 @@ ALTER TABLE ONLY public.alcancias ALTER COLUMN id_alcancia SET DEFAULT nextval('
 
 
 --
--- TOC entry 2929 (class 2604 OID 25814)
+-- TOC entry 2936 (class 2604 OID 25814)
 -- Name: cat_cajero id_cajero; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -2984,7 +3037,7 @@ ALTER TABLE ONLY public.cat_cajero ALTER COLUMN id_cajero SET DEFAULT nextval('p
 
 
 --
--- TOC entry 2930 (class 2604 OID 25825)
+-- TOC entry 2937 (class 2604 OID 25825)
 -- Name: cat_estado_actividad_asignacion id_estado_actividad; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -2992,7 +3045,7 @@ ALTER TABLE ONLY public.cat_estado_actividad_asignacion ALTER COLUMN id_estado_a
 
 
 --
--- TOC entry 2931 (class 2604 OID 25836)
+-- TOC entry 2938 (class 2604 OID 25836)
 -- Name: cat_servicios id_servicio; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -3000,7 +3053,7 @@ ALTER TABLE ONLY public.cat_servicios ALTER COLUMN id_servicio SET DEFAULT nextv
 
 
 --
--- TOC entry 2932 (class 2604 OID 25847)
+-- TOC entry 2939 (class 2604 OID 25847)
 -- Name: cat_tipo_tarjeta id_tipo_tarjeta; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -3008,7 +3061,7 @@ ALTER TABLE ONLY public.cat_tipo_tarjeta ALTER COLUMN id_tipo_tarjeta SET DEFAUL
 
 
 --
--- TOC entry 2933 (class 2604 OID 25858)
+-- TOC entry 2940 (class 2604 OID 25858)
 -- Name: cat_tipo_usuario id_tipo_usuario; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -3016,7 +3069,7 @@ ALTER TABLE ONLY public.cat_tipo_usuario ALTER COLUMN id_tipo_usuario SET DEFAUL
 
 
 --
--- TOC entry 2944 (class 2604 OID 25978)
+-- TOC entry 2950 (class 2604 OID 25978)
 -- Name: consorcio id_consorcio; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -3024,7 +3077,7 @@ ALTER TABLE ONLY public.consorcio ALTER COLUMN id_consorcio SET DEFAULT nextval(
 
 
 --
--- TOC entry 2945 (class 2604 OID 25989)
+-- TOC entry 2951 (class 2604 OID 25989)
 -- Name: consorcios_propietarios id_consorcios_propietarios; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -3032,7 +3085,7 @@ ALTER TABLE ONLY public.consorcios_propietarios ALTER COLUMN id_consorcios_propi
 
 
 --
--- TOC entry 2946 (class 2604 OID 25997)
+-- TOC entry 2952 (class 2604 OID 25997)
 -- Name: corte_caja id_corte_caja; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -3040,7 +3093,7 @@ ALTER TABLE ONLY public.corte_caja ALTER COLUMN id_corte_caja SET DEFAULT nextva
 
 
 --
--- TOC entry 2947 (class 2604 OID 26008)
+-- TOC entry 2953 (class 2604 OID 26008)
 -- Name: cuentas id_cuenta; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -3048,7 +3101,7 @@ ALTER TABLE ONLY public.cuentas ALTER COLUMN id_cuenta SET DEFAULT nextval('publ
 
 
 --
--- TOC entry 2934 (class 2604 OID 25869)
+-- TOC entry 2941 (class 2604 OID 25869)
 -- Name: cuentas_bancarias id_cuenta_bancaria; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -3056,7 +3109,7 @@ ALTER TABLE ONLY public.cuentas_bancarias ALTER COLUMN id_cuenta_bancaria SET DE
 
 
 --
--- TOC entry 2935 (class 2604 OID 25880)
+-- TOC entry 2942 (class 2604 OID 25880)
 -- Name: descuento_transbordo id_descuento; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -3064,7 +3117,7 @@ ALTER TABLE ONLY public.descuento_transbordo ALTER COLUMN id_descuento SET DEFAU
 
 
 --
--- TOC entry 2936 (class 2604 OID 25888)
+-- TOC entry 2943 (class 2604 OID 25888)
 -- Name: fideicomiso id_fideicomiso; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -3072,7 +3125,7 @@ ALTER TABLE ONLY public.fideicomiso ALTER COLUMN id_fideicomiso SET DEFAULT next
 
 
 --
--- TOC entry 2937 (class 2604 OID 25899)
+-- TOC entry 2944 (class 2604 OID 25899)
 -- Name: operadores id_operador; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -3080,7 +3133,7 @@ ALTER TABLE ONLY public.operadores ALTER COLUMN id_operador SET DEFAULT nextval(
 
 
 --
--- TOC entry 2938 (class 2604 OID 25910)
+-- TOC entry 2945 (class 2604 OID 25910)
 -- Name: propietario_unidad id_propietario; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -3088,7 +3141,7 @@ ALTER TABLE ONLY public.propietario_unidad ALTER COLUMN id_propietario SET DEFAU
 
 
 --
--- TOC entry 2948 (class 2604 OID 26019)
+-- TOC entry 2954 (class 2604 OID 26019)
 -- Name: recarga id_recarga; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -3096,7 +3149,7 @@ ALTER TABLE ONLY public.recarga ALTER COLUMN id_recarga SET DEFAULT nextval('pub
 
 
 --
--- TOC entry 2939 (class 2604 OID 25921)
+-- TOC entry 2946 (class 2604 OID 25921)
 -- Name: tarifas id_tarifa; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -3104,7 +3157,7 @@ ALTER TABLE ONLY public.tarifas ALTER COLUMN id_tarifa SET DEFAULT nextval('publ
 
 
 --
--- TOC entry 2940 (class 2604 OID 25932)
+-- TOC entry 2955 (class 2604 OID 26175)
 -- Name: transaccion_local id_transaccion_local; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -3112,7 +3165,7 @@ ALTER TABLE ONLY public.transaccion_local ALTER COLUMN id_transaccion_local SET 
 
 
 --
--- TOC entry 2941 (class 2604 OID 25943)
+-- TOC entry 2947 (class 2604 OID 25943)
 -- Name: unidades id_unidad; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -3120,7 +3173,15 @@ ALTER TABLE ONLY public.unidades ALTER COLUMN id_unidad SET DEFAULT nextval('pub
 
 
 --
--- TOC entry 2942 (class 2604 OID 25954)
+-- TOC entry 2956 (class 2604 OID 26153)
+-- Name: unidades_operadores id_unidad_operador; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.unidades_operadores ALTER COLUMN id_unidad_operador SET DEFAULT nextval('public.unidades_operadores_id_unidad_operador_seq'::regclass);
+
+
+--
+-- TOC entry 2948 (class 2604 OID 25954)
 -- Name: usuarios id_usuario; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -3128,8 +3189,8 @@ ALTER TABLE ONLY public.usuarios ALTER COLUMN id_usuario SET DEFAULT nextval('pu
 
 
 --
--- TOC entry 3195 (class 0 OID 26053)
--- Dependencies: 277
+-- TOC entry 3201 (class 0 OID 26053)
+-- Dependencies: 275
 -- Data for Name: acceso; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -3137,7 +3198,7 @@ INSERT INTO public.acceso VALUES ('1', 'usuario', 'contrasena');
 
 
 --
--- TOC entry 3154 (class 0 OID 25800)
+-- TOC entry 3162 (class 0 OID 25800)
 -- Dependencies: 236
 -- Data for Name: administrador_unidad; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -3147,15 +3208,15 @@ INSERT INTO public.administrador_unidad VALUES (2, '2345234523452345', '1', 3235
 
 
 --
--- TOC entry 3184 (class 0 OID 25964)
--- Dependencies: 266
+-- TOC entry 3190 (class 0 OID 25964)
+-- Dependencies: 264
 -- Data for Name: alcancias; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 
 
 --
--- TOC entry 3156 (class 0 OID 25811)
+-- TOC entry 3164 (class 0 OID 25811)
 -- Dependencies: 238
 -- Data for Name: cat_cajero; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -3165,7 +3226,7 @@ INSERT INTO public.cat_cajero VALUES (2, 'PinoSuarez Banorte', 0);
 
 
 --
--- TOC entry 3158 (class 0 OID 25822)
+-- TOC entry 3166 (class 0 OID 25822)
 -- Dependencies: 240
 -- Data for Name: cat_estado_actividad_asignacion; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -3176,7 +3237,7 @@ INSERT INTO public.cat_estado_actividad_asignacion VALUES (3, 'Actividad 3', 0);
 
 
 --
--- TOC entry 3160 (class 0 OID 25833)
+-- TOC entry 3168 (class 0 OID 25833)
 -- Dependencies: 242
 -- Data for Name: cat_servicios; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -3186,7 +3247,7 @@ INSERT INTO public.cat_servicios VALUES (2, 'Servicio2', 0);
 
 
 --
--- TOC entry 3162 (class 0 OID 25844)
+-- TOC entry 3170 (class 0 OID 25844)
 -- Dependencies: 244
 -- Data for Name: cat_tipo_tarjeta; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -3197,7 +3258,7 @@ INSERT INTO public.cat_tipo_tarjeta VALUES (3, 'Tipo tarjeta3', 0);
 
 
 --
--- TOC entry 3164 (class 0 OID 25855)
+-- TOC entry 3172 (class 0 OID 25855)
 -- Dependencies: 246
 -- Data for Name: cat_tipo_usuario; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -3207,24 +3268,24 @@ INSERT INTO public.cat_tipo_usuario VALUES (2, 'Usuario tipo 2', 0);
 
 
 --
--- TOC entry 3186 (class 0 OID 25975)
--- Dependencies: 268
+-- TOC entry 3192 (class 0 OID 25975)
+-- Dependencies: 266
 -- Data for Name: consorcio; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 
 
 --
--- TOC entry 3188 (class 0 OID 25986)
--- Dependencies: 270
+-- TOC entry 3194 (class 0 OID 25986)
+-- Dependencies: 268
 -- Data for Name: consorcios_propietarios; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 
 
 --
--- TOC entry 3197 (class 0 OID 26080)
--- Dependencies: 279
+-- TOC entry 3203 (class 0 OID 26080)
+-- Dependencies: 277
 -- Data for Name: consulta; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -3232,23 +3293,23 @@ INSERT INTO public.consulta VALUES (0);
 
 
 --
--- TOC entry 3190 (class 0 OID 25994)
--- Dependencies: 272
+-- TOC entry 3196 (class 0 OID 25994)
+-- Dependencies: 270
 -- Data for Name: corte_caja; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 
 
 --
--- TOC entry 3192 (class 0 OID 26005)
--- Dependencies: 274
+-- TOC entry 3198 (class 0 OID 26005)
+-- Dependencies: 272
 -- Data for Name: cuentas; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 
 
 --
--- TOC entry 3166 (class 0 OID 25866)
+-- TOC entry 3174 (class 0 OID 25866)
 -- Dependencies: 248
 -- Data for Name: cuentas_bancarias; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -3258,7 +3319,7 @@ INSERT INTO public.cuentas_bancarias VALUES (2, '264337110164691804752374262582'
 
 
 --
--- TOC entry 3168 (class 0 OID 25877)
+-- TOC entry 3176 (class 0 OID 25877)
 -- Dependencies: 250
 -- Data for Name: descuento_transbordo; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -3268,8 +3329,8 @@ INSERT INTO public.descuento_transbordo VALUES (2, 2, 3, 0);
 
 
 --
--- TOC entry 3196 (class 0 OID 26068)
--- Dependencies: 278
+-- TOC entry 3202 (class 0 OID 26068)
+-- Dependencies: 276
 -- Data for Name: det_administrador_unidad; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -3277,7 +3338,7 @@ INSERT INTO public.det_administrador_unidad VALUES (1, 1, 0);
 
 
 --
--- TOC entry 3170 (class 0 OID 25885)
+-- TOC entry 3178 (class 0 OID 25885)
 -- Dependencies: 252
 -- Data for Name: fideicomiso; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -3285,7 +3346,7 @@ INSERT INTO public.det_administrador_unidad VALUES (1, 1, 0);
 
 
 --
--- TOC entry 3172 (class 0 OID 25896)
+-- TOC entry 3180 (class 0 OID 25896)
 -- Dependencies: 254
 -- Data for Name: operadores; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -3295,7 +3356,7 @@ INSERT INTO public.operadores VALUES (2, 'Operador 2', 'licencia2', 1, 'apellido
 
 
 --
--- TOC entry 3174 (class 0 OID 25907)
+-- TOC entry 3182 (class 0 OID 25907)
 -- Dependencies: 256
 -- Data for Name: propietario_unidad; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -3304,8 +3365,8 @@ INSERT INTO public.propietario_unidad VALUES (1, 'propietario de ', 'unidad', '1
 
 
 --
--- TOC entry 3194 (class 0 OID 26016)
--- Dependencies: 276
+-- TOC entry 3200 (class 0 OID 26016)
+-- Dependencies: 274
 -- Data for Name: recarga; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -3313,7 +3374,7 @@ INSERT INTO public.recarga VALUES (1, 'U8U8U8HQ2', 1, 1, '2019-07-27', 1, 1, 1, 
 
 
 --
--- TOC entry 3176 (class 0 OID 25918)
+-- TOC entry 3184 (class 0 OID 25918)
 -- Dependencies: 258
 -- Data for Name: tarifas; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -3322,16 +3383,22 @@ INSERT INTO public.tarifas VALUES (1, 'Concepto1', 1, 2, 6, 8, 0);
 
 
 --
--- TOC entry 3178 (class 0 OID 25929)
--- Dependencies: 260
+-- TOC entry 3204 (class 0 OID 26097)
+-- Dependencies: 278
 -- Data for Name: transaccion_local; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
+INSERT INTO public.transaccion_local VALUES (NULL, NULL, 0, 1, NULL, NULL, 3, NULL, '2019-07-29', NULL, 0, NULL, NULL, 1);
+INSERT INTO public.transaccion_local VALUES (NULL, NULL, 0, 1, NULL, 15, 3, 18, '2019-07-30', NULL, 0, 'b20_p=1', 'm2_p=1', 3);
+INSERT INTO public.transaccion_local VALUES (NULL, NULL, 0, 1, NULL, 15, 3, 18, '2019-07-30', NULL, 0, 'b20_p=1', 'm2_p=1', 4);
+INSERT INTO public.transaccion_local VALUES (NULL, NULL, 0, 1, NULL, 15, 3, 18, '2019-07-30', NULL, 0, 'b20_p=1', 'm2_p=1', 5);
+INSERT INTO public.transaccion_local VALUES (NULL, NULL, 0, 1, NULL, 15, 3, 18, '2019-07-30', NULL, 0, 'b20_p=1', 'm2_p=1', 6);
+INSERT INTO public.transaccion_local VALUES (NULL, NULL, 0, 1, NULL, 15, 3, 18, '2019-07-30', NULL, 0, 'b20_p=1', 'm2_p=1', 7);
 
 
 --
--- TOC entry 3180 (class 0 OID 25940)
--- Dependencies: 262
+-- TOC entry 3186 (class 0 OID 25940)
+-- Dependencies: 260
 -- Data for Name: unidades; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -3339,8 +3406,18 @@ INSERT INTO public.unidades VALUES (1, 'Modelo 1999', 'JD93JEJS', 12000.20000000
 
 
 --
--- TOC entry 3182 (class 0 OID 25951)
--- Dependencies: 264
+-- TOC entry 3205 (class 0 OID 26144)
+-- Dependencies: 279
+-- Data for Name: unidades_operadores; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+INSERT INTO public.unidades_operadores VALUES (1, '1', 1, '2019-07-29', 0, 3);
+INSERT INTO public.unidades_operadores VALUES (1, '1', 3, '2019-07-29', 0, 4);
+
+
+--
+-- TOC entry 3188 (class 0 OID 25951)
+-- Dependencies: 262
 -- Data for Name: usuarios; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -3348,7 +3425,7 @@ INSERT INTO public.usuarios VALUES (1, 1, 'David', 'Esquivel', 'Haro', '31216275
 
 
 --
--- TOC entry 3224 (class 0 OID 0)
+-- TOC entry 3235 (class 0 OID 0)
 -- Dependencies: 235
 -- Name: administrador_unidad_id_administrador_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -3357,7 +3434,7 @@ SELECT pg_catalog.setval('public.administrador_unidad_id_administrador_seq', 1, 
 
 
 --
--- TOC entry 3225 (class 0 OID 0)
+-- TOC entry 3236 (class 0 OID 0)
 -- Dependencies: 196
 -- Name: administrador_unidad_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -3366,7 +3443,7 @@ SELECT pg_catalog.setval('public.administrador_unidad_seq', 1, false);
 
 
 --
--- TOC entry 3226 (class 0 OID 0)
+-- TOC entry 3237 (class 0 OID 0)
 -- Dependencies: 197
 -- Name: alcancia_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -3375,8 +3452,8 @@ SELECT pg_catalog.setval('public.alcancia_seq', 1, false);
 
 
 --
--- TOC entry 3227 (class 0 OID 0)
--- Dependencies: 265
+-- TOC entry 3238 (class 0 OID 0)
+-- Dependencies: 263
 -- Name: alcancias_id_alcancia_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -3384,7 +3461,7 @@ SELECT pg_catalog.setval('public.alcancias_id_alcancia_seq', 1, false);
 
 
 --
--- TOC entry 3228 (class 0 OID 0)
+-- TOC entry 3239 (class 0 OID 0)
 -- Dependencies: 198
 -- Name: alertas_alcancia_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -3393,7 +3470,7 @@ SELECT pg_catalog.setval('public.alertas_alcancia_seq', 1, false);
 
 
 --
--- TOC entry 3229 (class 0 OID 0)
+-- TOC entry 3240 (class 0 OID 0)
 -- Dependencies: 199
 -- Name: asignacion_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -3402,7 +3479,7 @@ SELECT pg_catalog.setval('public.asignacion_seq', 1, false);
 
 
 --
--- TOC entry 3230 (class 0 OID 0)
+-- TOC entry 3241 (class 0 OID 0)
 -- Dependencies: 200
 -- Name: cajero_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -3411,7 +3488,7 @@ SELECT pg_catalog.setval('public.cajero_seq', 1, false);
 
 
 --
--- TOC entry 3231 (class 0 OID 0)
+-- TOC entry 3242 (class 0 OID 0)
 -- Dependencies: 201
 -- Name: capas_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -3420,7 +3497,7 @@ SELECT pg_catalog.setval('public.capas_seq', 1, false);
 
 
 --
--- TOC entry 3232 (class 0 OID 0)
+-- TOC entry 3243 (class 0 OID 0)
 -- Dependencies: 237
 -- Name: cat_cajero_id_cajero_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -3429,7 +3506,7 @@ SELECT pg_catalog.setval('public.cat_cajero_id_cajero_seq', 1, false);
 
 
 --
--- TOC entry 3233 (class 0 OID 0)
+-- TOC entry 3244 (class 0 OID 0)
 -- Dependencies: 239
 -- Name: cat_estado_actividad_asignacion_id_estado_actividad_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -3438,7 +3515,7 @@ SELECT pg_catalog.setval('public.cat_estado_actividad_asignacion_id_estado_activ
 
 
 --
--- TOC entry 3234 (class 0 OID 0)
+-- TOC entry 3245 (class 0 OID 0)
 -- Dependencies: 241
 -- Name: cat_servicios_id_servicio_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -3447,7 +3524,7 @@ SELECT pg_catalog.setval('public.cat_servicios_id_servicio_seq', 1, false);
 
 
 --
--- TOC entry 3235 (class 0 OID 0)
+-- TOC entry 3246 (class 0 OID 0)
 -- Dependencies: 243
 -- Name: cat_tipo_tarjeta_id_tipo_tarjeta_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -3456,7 +3533,7 @@ SELECT pg_catalog.setval('public.cat_tipo_tarjeta_id_tipo_tarjeta_seq', 1, false
 
 
 --
--- TOC entry 3236 (class 0 OID 0)
+-- TOC entry 3247 (class 0 OID 0)
 -- Dependencies: 245
 -- Name: cat_tipo_usuario_id_tipo_usuario_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -3465,8 +3542,8 @@ SELECT pg_catalog.setval('public.cat_tipo_usuario_id_tipo_usuario_seq', 1, true)
 
 
 --
--- TOC entry 3237 (class 0 OID 0)
--- Dependencies: 267
+-- TOC entry 3248 (class 0 OID 0)
+-- Dependencies: 265
 -- Name: consorcio_id_consorcio_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -3474,7 +3551,7 @@ SELECT pg_catalog.setval('public.consorcio_id_consorcio_seq', 1, false);
 
 
 --
--- TOC entry 3238 (class 0 OID 0)
+-- TOC entry 3249 (class 0 OID 0)
 -- Dependencies: 202
 -- Name: consorcio_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -3483,8 +3560,8 @@ SELECT pg_catalog.setval('public.consorcio_seq', 1, false);
 
 
 --
--- TOC entry 3239 (class 0 OID 0)
--- Dependencies: 269
+-- TOC entry 3250 (class 0 OID 0)
+-- Dependencies: 267
 -- Name: consorcios_propietarios_id_consorcios_propietarios_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -3492,7 +3569,7 @@ SELECT pg_catalog.setval('public.consorcios_propietarios_id_consorcios_propietar
 
 
 --
--- TOC entry 3240 (class 0 OID 0)
+-- TOC entry 3251 (class 0 OID 0)
 -- Dependencies: 203
 -- Name: consorcios_propietarios_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -3501,8 +3578,8 @@ SELECT pg_catalog.setval('public.consorcios_propietarios_seq', 1, false);
 
 
 --
--- TOC entry 3241 (class 0 OID 0)
--- Dependencies: 271
+-- TOC entry 3252 (class 0 OID 0)
+-- Dependencies: 269
 -- Name: corte_caja_id_corte_caja_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -3510,7 +3587,7 @@ SELECT pg_catalog.setval('public.corte_caja_id_corte_caja_seq', 1, false);
 
 
 --
--- TOC entry 3242 (class 0 OID 0)
+-- TOC entry 3253 (class 0 OID 0)
 -- Dependencies: 204
 -- Name: corte_caja_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -3519,7 +3596,7 @@ SELECT pg_catalog.setval('public.corte_caja_seq', 1, false);
 
 
 --
--- TOC entry 3243 (class 0 OID 0)
+-- TOC entry 3254 (class 0 OID 0)
 -- Dependencies: 205
 -- Name: cuenta_bancaria_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -3528,7 +3605,7 @@ SELECT pg_catalog.setval('public.cuenta_bancaria_seq', 1, false);
 
 
 --
--- TOC entry 3244 (class 0 OID 0)
+-- TOC entry 3255 (class 0 OID 0)
 -- Dependencies: 206
 -- Name: cuenta_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -3537,7 +3614,7 @@ SELECT pg_catalog.setval('public.cuenta_seq', 1, false);
 
 
 --
--- TOC entry 3245 (class 0 OID 0)
+-- TOC entry 3256 (class 0 OID 0)
 -- Dependencies: 247
 -- Name: cuentas_bancarias_id_cuenta_bancaria_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -3546,8 +3623,8 @@ SELECT pg_catalog.setval('public.cuentas_bancarias_id_cuenta_bancaria_seq', 1, f
 
 
 --
--- TOC entry 3246 (class 0 OID 0)
--- Dependencies: 273
+-- TOC entry 3257 (class 0 OID 0)
+-- Dependencies: 271
 -- Name: cuentas_id_cuenta_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -3555,7 +3632,7 @@ SELECT pg_catalog.setval('public.cuentas_id_cuenta_seq', 1, false);
 
 
 --
--- TOC entry 3247 (class 0 OID 0)
+-- TOC entry 3258 (class 0 OID 0)
 -- Dependencies: 249
 -- Name: descuento_transbordo_id_descuento_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -3564,7 +3641,7 @@ SELECT pg_catalog.setval('public.descuento_transbordo_id_descuento_seq', 1, fals
 
 
 --
--- TOC entry 3248 (class 0 OID 0)
+-- TOC entry 3259 (class 0 OID 0)
 -- Dependencies: 207
 -- Name: descuento_transbordo_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -3573,7 +3650,7 @@ SELECT pg_catalog.setval('public.descuento_transbordo_seq', 1, false);
 
 
 --
--- TOC entry 3249 (class 0 OID 0)
+-- TOC entry 3260 (class 0 OID 0)
 -- Dependencies: 208
 -- Name: estado_actividad_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -3582,7 +3659,7 @@ SELECT pg_catalog.setval('public.estado_actividad_seq', 1, false);
 
 
 --
--- TOC entry 3250 (class 0 OID 0)
+-- TOC entry 3261 (class 0 OID 0)
 -- Dependencies: 251
 -- Name: fideicomiso_id_fideicomiso_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -3591,7 +3668,7 @@ SELECT pg_catalog.setval('public.fideicomiso_id_fideicomiso_seq', 1, false);
 
 
 --
--- TOC entry 3251 (class 0 OID 0)
+-- TOC entry 3262 (class 0 OID 0)
 -- Dependencies: 209
 -- Name: fideicomiso_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -3600,7 +3677,7 @@ SELECT pg_catalog.setval('public.fideicomiso_seq', 1, false);
 
 
 --
--- TOC entry 3252 (class 0 OID 0)
+-- TOC entry 3263 (class 0 OID 0)
 -- Dependencies: 210
 -- Name: historial_tarjeta_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -3609,7 +3686,7 @@ SELECT pg_catalog.setval('public.historial_tarjeta_seq', 1, false);
 
 
 --
--- TOC entry 3253 (class 0 OID 0)
+-- TOC entry 3264 (class 0 OID 0)
 -- Dependencies: 211
 -- Name: itinerarios_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -3618,7 +3695,7 @@ SELECT pg_catalog.setval('public.itinerarios_seq', 1, false);
 
 
 --
--- TOC entry 3254 (class 0 OID 0)
+-- TOC entry 3265 (class 0 OID 0)
 -- Dependencies: 212
 -- Name: motiv_cuenta_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -3627,7 +3704,7 @@ SELECT pg_catalog.setval('public.motiv_cuenta_seq', 1, false);
 
 
 --
--- TOC entry 3255 (class 0 OID 0)
+-- TOC entry 3266 (class 0 OID 0)
 -- Dependencies: 213
 -- Name: motiv_tarjeta_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -3636,7 +3713,7 @@ SELECT pg_catalog.setval('public.motiv_tarjeta_seq', 1, false);
 
 
 --
--- TOC entry 3256 (class 0 OID 0)
+-- TOC entry 3267 (class 0 OID 0)
 -- Dependencies: 214
 -- Name: operador_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -3645,7 +3722,7 @@ SELECT pg_catalog.setval('public.operador_seq', 1, false);
 
 
 --
--- TOC entry 3257 (class 0 OID 0)
+-- TOC entry 3268 (class 0 OID 0)
 -- Dependencies: 253
 -- Name: operadores_id_operador_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -3654,7 +3731,7 @@ SELECT pg_catalog.setval('public.operadores_id_operador_seq', 1, false);
 
 
 --
--- TOC entry 3258 (class 0 OID 0)
+-- TOC entry 3269 (class 0 OID 0)
 -- Dependencies: 215
 -- Name: paradas_obligatorias_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -3663,7 +3740,7 @@ SELECT pg_catalog.setval('public.paradas_obligatorias_seq', 1, false);
 
 
 --
--- TOC entry 3259 (class 0 OID 0)
+-- TOC entry 3270 (class 0 OID 0)
 -- Dependencies: 255
 -- Name: propietario_unidad_id_propietario_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -3672,7 +3749,7 @@ SELECT pg_catalog.setval('public.propietario_unidad_id_propietario_seq', 1, fals
 
 
 --
--- TOC entry 3260 (class 0 OID 0)
+-- TOC entry 3271 (class 0 OID 0)
 -- Dependencies: 216
 -- Name: propietario_unidad_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -3681,7 +3758,7 @@ SELECT pg_catalog.setval('public.propietario_unidad_seq', 1, false);
 
 
 --
--- TOC entry 3261 (class 0 OID 0)
+-- TOC entry 3272 (class 0 OID 0)
 -- Dependencies: 217
 -- Name: puntos_carga_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -3690,7 +3767,7 @@ SELECT pg_catalog.setval('public.puntos_carga_seq', 1, false);
 
 
 --
--- TOC entry 3262 (class 0 OID 0)
+-- TOC entry 3273 (class 0 OID 0)
 -- Dependencies: 218
 -- Name: puntos_control_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -3699,7 +3776,7 @@ SELECT pg_catalog.setval('public.puntos_control_seq', 1, false);
 
 
 --
--- TOC entry 3263 (class 0 OID 0)
+-- TOC entry 3274 (class 0 OID 0)
 -- Dependencies: 219
 -- Name: ramales_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -3708,8 +3785,8 @@ SELECT pg_catalog.setval('public.ramales_seq', 1, false);
 
 
 --
--- TOC entry 3264 (class 0 OID 0)
--- Dependencies: 275
+-- TOC entry 3275 (class 0 OID 0)
+-- Dependencies: 273
 -- Name: recarga_id_recarga_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -3717,7 +3794,7 @@ SELECT pg_catalog.setval('public.recarga_id_recarga_seq', 1, false);
 
 
 --
--- TOC entry 3265 (class 0 OID 0)
+-- TOC entry 3276 (class 0 OID 0)
 -- Dependencies: 220
 -- Name: recarga_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -3726,7 +3803,7 @@ SELECT pg_catalog.setval('public.recarga_seq', 1, false);
 
 
 --
--- TOC entry 3266 (class 0 OID 0)
+-- TOC entry 3277 (class 0 OID 0)
 -- Dependencies: 221
 -- Name: rutas_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -3735,7 +3812,7 @@ SELECT pg_catalog.setval('public.rutas_seq', 1, false);
 
 
 --
--- TOC entry 3267 (class 0 OID 0)
+-- TOC entry 3278 (class 0 OID 0)
 -- Dependencies: 222
 -- Name: servicio_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -3744,7 +3821,7 @@ SELECT pg_catalog.setval('public.servicio_seq', 1, false);
 
 
 --
--- TOC entry 3268 (class 0 OID 0)
+-- TOC entry 3279 (class 0 OID 0)
 -- Dependencies: 223
 -- Name: talleres_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -3753,7 +3830,7 @@ SELECT pg_catalog.setval('public.talleres_seq', 1, false);
 
 
 --
--- TOC entry 3269 (class 0 OID 0)
+-- TOC entry 3280 (class 0 OID 0)
 -- Dependencies: 224
 -- Name: tarifa_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -3762,7 +3839,7 @@ SELECT pg_catalog.setval('public.tarifa_seq', 1, false);
 
 
 --
--- TOC entry 3270 (class 0 OID 0)
+-- TOC entry 3281 (class 0 OID 0)
 -- Dependencies: 257
 -- Name: tarifas_id_tarifa_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -3771,7 +3848,7 @@ SELECT pg_catalog.setval('public.tarifas_id_tarifa_seq', 1, false);
 
 
 --
--- TOC entry 3271 (class 0 OID 0)
+-- TOC entry 3282 (class 0 OID 0)
 -- Dependencies: 225
 -- Name: tarjeta_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -3780,7 +3857,7 @@ SELECT pg_catalog.setval('public.tarjeta_seq', 1, false);
 
 
 --
--- TOC entry 3272 (class 0 OID 0)
+-- TOC entry 3283 (class 0 OID 0)
 -- Dependencies: 226
 -- Name: terminal_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -3789,7 +3866,7 @@ SELECT pg_catalog.setval('public.terminal_seq', 1, false);
 
 
 --
--- TOC entry 3273 (class 0 OID 0)
+-- TOC entry 3284 (class 0 OID 0)
 -- Dependencies: 227
 -- Name: tipo_tarjeta_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -3798,7 +3875,7 @@ SELECT pg_catalog.setval('public.tipo_tarjeta_seq', 1, false);
 
 
 --
--- TOC entry 3274 (class 0 OID 0)
+-- TOC entry 3285 (class 0 OID 0)
 -- Dependencies: 228
 -- Name: tipo_usuario_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -3807,7 +3884,7 @@ SELECT pg_catalog.setval('public.tipo_usuario_seq', 1, false);
 
 
 --
--- TOC entry 3275 (class 0 OID 0)
+-- TOC entry 3286 (class 0 OID 0)
 -- Dependencies: 229
 -- Name: tramos_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -3816,16 +3893,16 @@ SELECT pg_catalog.setval('public.tramos_seq', 1, false);
 
 
 --
--- TOC entry 3276 (class 0 OID 0)
--- Dependencies: 259
+-- TOC entry 3287 (class 0 OID 0)
+-- Dependencies: 281
 -- Name: transaccion_local_id_transaccion_local_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.transaccion_local_id_transaccion_local_seq', 1, false);
+SELECT pg_catalog.setval('public.transaccion_local_id_transaccion_local_seq', 7, true);
 
 
 --
--- TOC entry 3277 (class 0 OID 0)
+-- TOC entry 3288 (class 0 OID 0)
 -- Dependencies: 230
 -- Name: transaccion_local_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -3834,7 +3911,7 @@ SELECT pg_catalog.setval('public.transaccion_local_seq', 1, false);
 
 
 --
--- TOC entry 3278 (class 0 OID 0)
+-- TOC entry 3289 (class 0 OID 0)
 -- Dependencies: 231
 -- Name: transaccion_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -3843,7 +3920,7 @@ SELECT pg_catalog.setval('public.transaccion_seq', 1, false);
 
 
 --
--- TOC entry 3279 (class 0 OID 0)
+-- TOC entry 3290 (class 0 OID 0)
 -- Dependencies: 232
 -- Name: unidad_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -3852,8 +3929,8 @@ SELECT pg_catalog.setval('public.unidad_seq', 1, false);
 
 
 --
--- TOC entry 3280 (class 0 OID 0)
--- Dependencies: 261
+-- TOC entry 3291 (class 0 OID 0)
+-- Dependencies: 259
 -- Name: unidades_id_unidad_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -3861,7 +3938,16 @@ SELECT pg_catalog.setval('public.unidades_id_unidad_seq', 1, false);
 
 
 --
--- TOC entry 3281 (class 0 OID 0)
+-- TOC entry 3292 (class 0 OID 0)
+-- Dependencies: 280
+-- Name: unidades_operadores_id_unidad_operador_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.unidades_operadores_id_unidad_operador_seq', 4, true);
+
+
+--
+-- TOC entry 3293 (class 0 OID 0)
 -- Dependencies: 233
 -- Name: usuario_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -3870,8 +3956,8 @@ SELECT pg_catalog.setval('public.usuario_seq', 1, false);
 
 
 --
--- TOC entry 3282 (class 0 OID 0)
--- Dependencies: 263
+-- TOC entry 3294 (class 0 OID 0)
+-- Dependencies: 261
 -- Name: usuarios_id_usuario_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -3879,7 +3965,7 @@ SELECT pg_catalog.setval('public.usuarios_id_usuario_seq', 1, false);
 
 
 --
--- TOC entry 3283 (class 0 OID 0)
+-- TOC entry 3295 (class 0 OID 0)
 -- Dependencies: 234
 -- Name: vueltas_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -3888,7 +3974,7 @@ SELECT pg_catalog.setval('public.vueltas_seq', 1, false);
 
 
 --
--- TOC entry 2950 (class 2606 OID 25808)
+-- TOC entry 2958 (class 2606 OID 25808)
 -- Name: administrador_unidad administrador_unidad_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3897,7 +3983,7 @@ ALTER TABLE ONLY public.administrador_unidad
 
 
 --
--- TOC entry 2982 (class 2606 OID 25972)
+-- TOC entry 2988 (class 2606 OID 25972)
 -- Name: alcancias alcancia_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3906,7 +3992,7 @@ ALTER TABLE ONLY public.alcancias
 
 
 --
--- TOC entry 2952 (class 2606 OID 25819)
+-- TOC entry 2960 (class 2606 OID 25819)
 -- Name: cat_cajero cat_cajero_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3915,7 +4001,7 @@ ALTER TABLE ONLY public.cat_cajero
 
 
 --
--- TOC entry 2954 (class 2606 OID 25830)
+-- TOC entry 2962 (class 2606 OID 25830)
 -- Name: cat_estado_actividad_asignacion cat_estado_actividad_asignacion_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3924,7 +4010,7 @@ ALTER TABLE ONLY public.cat_estado_actividad_asignacion
 
 
 --
--- TOC entry 2956 (class 2606 OID 25841)
+-- TOC entry 2964 (class 2606 OID 25841)
 -- Name: cat_servicios cat_servicios_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3933,7 +4019,7 @@ ALTER TABLE ONLY public.cat_servicios
 
 
 --
--- TOC entry 2958 (class 2606 OID 25852)
+-- TOC entry 2966 (class 2606 OID 25852)
 -- Name: cat_tipo_tarjeta cat_tipo_tarjeta_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3942,7 +4028,7 @@ ALTER TABLE ONLY public.cat_tipo_tarjeta
 
 
 --
--- TOC entry 2960 (class 2606 OID 25863)
+-- TOC entry 2968 (class 2606 OID 25863)
 -- Name: cat_tipo_usuario cat_tipo_usuario_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3951,7 +4037,7 @@ ALTER TABLE ONLY public.cat_tipo_usuario
 
 
 --
--- TOC entry 2984 (class 2606 OID 25983)
+-- TOC entry 2990 (class 2606 OID 25983)
 -- Name: consorcio consorcio_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3960,7 +4046,7 @@ ALTER TABLE ONLY public.consorcio
 
 
 --
--- TOC entry 2988 (class 2606 OID 26002)
+-- TOC entry 2994 (class 2606 OID 26002)
 -- Name: corte_caja corte_caja_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3969,7 +4055,7 @@ ALTER TABLE ONLY public.corte_caja
 
 
 --
--- TOC entry 2962 (class 2606 OID 25874)
+-- TOC entry 2970 (class 2606 OID 25874)
 -- Name: cuentas_bancarias cuentas_bancarias_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3978,7 +4064,7 @@ ALTER TABLE ONLY public.cuentas_bancarias
 
 
 --
--- TOC entry 2990 (class 2606 OID 26013)
+-- TOC entry 2996 (class 2606 OID 26013)
 -- Name: cuentas cuentas_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3987,7 +4073,7 @@ ALTER TABLE ONLY public.cuentas
 
 
 --
--- TOC entry 2964 (class 2606 OID 25882)
+-- TOC entry 2972 (class 2606 OID 25882)
 -- Name: descuento_transbordo descuento_transbordo_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -3996,7 +4082,7 @@ ALTER TABLE ONLY public.descuento_transbordo
 
 
 --
--- TOC entry 2966 (class 2606 OID 25893)
+-- TOC entry 2974 (class 2606 OID 25893)
 -- Name: fideicomiso fideicomiso_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -4005,7 +4091,7 @@ ALTER TABLE ONLY public.fideicomiso
 
 
 --
--- TOC entry 2986 (class 2606 OID 25991)
+-- TOC entry 2992 (class 2606 OID 25991)
 -- Name: consorcios_propietarios idx_consorcios_propietarios_id_consorcios_propietarios; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -4014,7 +4100,7 @@ ALTER TABLE ONLY public.consorcios_propietarios
 
 
 --
--- TOC entry 2968 (class 2606 OID 25904)
+-- TOC entry 2976 (class 2606 OID 25904)
 -- Name: operadores operadores_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -4023,7 +4109,7 @@ ALTER TABLE ONLY public.operadores
 
 
 --
--- TOC entry 2970 (class 2606 OID 25915)
+-- TOC entry 2978 (class 2606 OID 25915)
 -- Name: propietario_unidad propietario_unidad_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -4032,7 +4118,7 @@ ALTER TABLE ONLY public.propietario_unidad
 
 
 --
--- TOC entry 2992 (class 2606 OID 26024)
+-- TOC entry 2998 (class 2606 OID 26024)
 -- Name: recarga recarga_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -4041,7 +4127,7 @@ ALTER TABLE ONLY public.recarga
 
 
 --
--- TOC entry 2972 (class 2606 OID 25926)
+-- TOC entry 2980 (class 2606 OID 25926)
 -- Name: tarifas tarifas_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -4050,16 +4136,7 @@ ALTER TABLE ONLY public.tarifas
 
 
 --
--- TOC entry 2974 (class 2606 OID 25937)
--- Name: transaccion_local transaccion_local_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.transaccion_local
-    ADD CONSTRAINT transaccion_local_pkey PRIMARY KEY (id_transaccion_local);
-
-
---
--- TOC entry 2976 (class 2606 OID 25948)
+-- TOC entry 2982 (class 2606 OID 25948)
 -- Name: unidades unidad_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -4068,7 +4145,16 @@ ALTER TABLE ONLY public.unidades
 
 
 --
--- TOC entry 2978 (class 2606 OID 25961)
+-- TOC entry 3000 (class 2606 OID 26161)
+-- Name: unidades_operadores unidades_operadores_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.unidades_operadores
+    ADD CONSTRAINT unidades_operadores_pkey PRIMARY KEY (id_unidad_operador);
+
+
+--
+-- TOC entry 2984 (class 2606 OID 25961)
 -- Name: usuarios unq_usuarios_id_cuenta; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -4077,7 +4163,7 @@ ALTER TABLE ONLY public.usuarios
 
 
 --
--- TOC entry 2980 (class 2606 OID 25959)
+-- TOC entry 2986 (class 2606 OID 25959)
 -- Name: usuarios usuarios_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -4085,7 +4171,7 @@ ALTER TABLE ONLY public.usuarios
     ADD CONSTRAINT usuarios_pkey PRIMARY KEY (id_usuario);
 
 
--- Completed on 2019-07-29 13:21:23
+-- Completed on 2019-07-30 00:24:04
 
 --
 -- PostgreSQL database dump complete

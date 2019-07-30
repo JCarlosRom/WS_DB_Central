@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"_postman_id": "0eb4c754-63f9-4028-aedd-61169acfab98",
+			"_postman_id": "0d5dde76-1f4c-4f31-b3c5-0eccd01e1ee8",
 			"name": "http://localhost:3000/tarifa/consultar",
 			"request": {
 				"method": "POST",
@@ -73,7 +73,7 @@
 			"response": []
 		},
 		{
-			"_postman_id": "caa087bc-c18d-4fdb-9e1a-cd3b64e56c9c",
+			"_postman_id": "7450311f-7f27-411c-afa2-3c15bbdf0d02",
 			"name": "http://localhost:3000/operador/consultar/habilitado",
 			"request": {
 				"method": "POST",
@@ -140,7 +140,7 @@
 			"response": []
 		},
 		{
-			"_postman_id": "ca8707f3-2bb5-4b7c-a125-33dc4cd55632",
+			"_postman_id": "0723d6e2-ea08-43a4-90b8-0429a3427da3",
 			"name": "localhost:3000/administradores/unidades/consulta",
 			"request": {
 				"method": "POST",
@@ -207,7 +207,7 @@
 			"response": []
 		},
 		{
-			"_postman_id": "3a5f4255-3287-47e3-b210-431c2bed6fbb",
+			"_postman_id": "8adfe3ea-8e16-4874-98f9-fdb4f7403909",
 			"name": "localhost:3000/operador/consulta/unidad/turno",
 			"request": {
 				"method": "POST",
@@ -274,7 +274,7 @@
 			"response": []
 		},
 		{
-			"_postman_id": "a35c9a42-698f-43f6-9de6-98d776647175",
+			"_postman_id": "f86271e7-35e4-4c84-be9a-28bc73b3e6bd",
 			"name": "localhost:3000/operador/consulta",
 			"request": {
 				"method": "POST",
@@ -341,7 +341,7 @@
 			"response": []
 		},
 		{
-			"_postman_id": "46ae4ea8-e721-475e-b248-ae024edfc3d6",
+			"_postman_id": "082ff302-ad23-4392-a66e-e3994260e703",
 			"name": "localhost:3000/servicio/consulta",
 			"request": {
 				"method": "POST",
@@ -408,7 +408,7 @@
 			"response": []
 		},
 		{
-			"_postman_id": "3c11caf0-c827-43c7-8fb9-39a28442eb16",
+			"_postman_id": "17e0a701-7c4c-4355-b027-869f9185e3c0",
 			"name": "localhost:3000/webservice/consulta",
 			"request": {
 				"method": "POST",
@@ -469,6 +469,251 @@
 						"operador",
 						"consultar",
 						"habilitado"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "1d5e2575-4e53-4973-a67e-d887a30028a8",
+			"name": "localhost:3000/pago/registrar",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "filtrosp",
+						"value": "1",
+						"disabled": true
+					},
+					{
+						"key": "parametrosp",
+						"value": "\"12346789\"",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nivunidad",
+							"value": "\"1\"",
+							"sessionValue": "\"Unidad error\"",
+							"type": "text"
+						},
+						{
+							"key": "usuario",
+							"value": "\"usuario\"",
+							"sessionValue": "\"Usuario error\"",
+							"type": "text"
+						},
+						{
+							"key": "contrasena",
+							"value": "\"contrasena\"",
+							"sessionValue": "\"Contrasena error\"",
+							"type": "text"
+						},
+						{
+							"key": "numtarjetasp",
+							"value": "\"3121224215\"",
+							"sessionValue": "\"Num tarjeta error\"",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/operador/consultar/habilitado",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"operador",
+						"consultar",
+						"habilitado"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "902f8c77-9f36-48d4-954b-ddb5d64d99fa",
+			"name": "localhost:3000/operador/asociar",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "filtrosp",
+						"value": "1",
+						"disabled": true
+					},
+					{
+						"key": "parametrosp",
+						"value": "\"12346789\"",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nivunidad",
+							"value": "\"1\"",
+							"sessionValue": "\"Unidad error\"",
+							"type": "text"
+						},
+						{
+							"key": "usuario",
+							"value": "\"usuario\"",
+							"sessionValue": "\"Usuario error\"",
+							"type": "text"
+						},
+						{
+							"key": "contrasena",
+							"value": "\"contrasena\"",
+							"sessionValue": "\"Contrasena error\"",
+							"type": "text"
+						},
+						{
+							"key": "idoperador",
+							"value": "3",
+							"sessionValue": "\"Num tarjeta error\"",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/operador/asociar",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"operador",
+						"asociar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "1f34f3af-f472-4f80-9c45-78ad961471cc",
+			"name": "localhost:3000/pago/registrar",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "filtrosp",
+						"value": "1",
+						"disabled": true
+					},
+					{
+						"key": "parametrosp",
+						"value": "\"12346789\"",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nivunidad",
+							"value": "\"1\"",
+							"sessionValue": "\"Unidad error\"",
+							"type": "text"
+						},
+						{
+							"key": "usuario",
+							"value": "\"usuario\"",
+							"sessionValue": "\"Usuario error\"",
+							"type": "text"
+						},
+						{
+							"key": "contrasena",
+							"value": "\"contrasena\"",
+							"sessionValue": "\"Contrasena error\"",
+							"type": "text"
+						},
+						{
+							"key": "referenciausuario",
+							"value": "\"referencia user\"",
+							"sessionValue": "\"Num tarjeta error\"",
+							"type": "text"
+						},
+						{
+							"key": "idservicio",
+							"value": "1",
+							"sessionValue": "1",
+							"type": "text"
+						},
+						{
+							"key": "formapago",
+							"value": "0",
+							"sessionValue": "0",
+							"type": "text"
+						},
+						{
+							"key": "cantidad",
+							"value": "15.00",
+							"sessionValue": "\"15.00",
+							"type": "text"
+						},
+						{
+							"key": "importe",
+							"value": "3.00",
+							"sessionValue": "3.00",
+							"type": "text"
+						},
+						{
+							"key": "total",
+							"value": "18.00",
+							"sessionValue": "18.00",
+							"type": "text"
+						},
+						{
+							"key": "denominacionesrecibidas",
+							"value": "\"b20_p=1\"",
+							"sessionValue": " 'b20_p=1'",
+							"type": "text"
+						},
+						{
+							"key": "denominacionesentregadas",
+							"value": "\"m2_p=1\"",
+							"sessionValue": " 'm2_p=1'",
+							"type": "text"
+						},
+						{
+							"key": "fechahora",
+							"value": "\"30/07/2019\"",
+							"sessionValue": "\"30/07/2019\"",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/pago/registrar",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"pago",
+						"registrar"
 					]
 				}
 			},

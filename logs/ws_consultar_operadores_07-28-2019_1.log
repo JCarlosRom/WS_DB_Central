@@ -1,6 +1,0 @@
-[ { msg: '001, “Operación Exitosa”',
-    id_operador: 1,
-    nombre: 'Operador 1 apellido 1 apellido 2' },
-  { msg: '001, “Operación Exitosa”',
-    id_operador: 2,
-    nombre: 'Operador 2 apellido 1 apellido 2' } ]

@@ -74,7 +74,7 @@ const postConsultaTarifa = (request, response)=>{
                 }
             
                 // Creación de log
-                createLog(results.rows, "ws_consultar_tarifas" )
+                createLog(results.rows, "ws_consultar_tarifass" )
     
                 // Call back pata encriptar cada elemento de la respuesta para envío1
                 // El call back se utilizó para dar un tiempo en lo que se crea el log y se envía la información
@@ -98,8 +98,12 @@ const postConsultaTarifa = (request, response)=>{
                     response.status(200).json(results.rows)
                 }
             }catch(error){
+             
+            
                 createLog(error, "ws_consultar_tarifas")
-                response.status(404).json(error)
+                response.status(404).json({ msg: "015, “No se estableció conexión con la base de datos de monedero”"})
+                
+              
             }
         
         }
@@ -162,7 +166,8 @@ const postConsultarOperadoresHabilitados = (request, response) => {
                 }
             } catch (error) {
                 createLog(error, "ws_consultar_operadores")
-                response.status(404).json(error)
+                response.status(404).json({ msg: "015, “No se estableció conexión con la base de datos de monedero”" })
+
             }
 
         }
@@ -180,13 +185,15 @@ const postAsociacionOperadorUnidad = (request, response) => {
 
     // Variables de entrada
     const nivunidad = request.body.nivunidad
+    const idoperador = request.body.idoperador
     const usuario = request.body.usuario
     const contrasena = request.body.contrasena
 
 
     // Query
-    var query = "Select * from  ws_consultar_tarifas('" + nivunidad +
-        "','" + usuario +
+    var query = "Select * from  ws_asociar_operador_unidad('" + nivunidad +
+        "'," + idoperador +
+        ",'" + usuario +
         "','" + contrasena + "')"
     // Se reemplaza las comillas doble por simples para la consulta
     query = query.replace(/["]+/g, '')
@@ -202,7 +209,7 @@ const postAsociacionOperadorUnidad = (request, response) => {
                 }
 
                 // Creación de log
-                createLog(results.rows, "ws_consultar_tarifas")
+                createLog(results.rows, "ws_asociar_operador_unidad")
 
                 // Call back pata encriptar cada elemento de la respuesta para envío1
                 // El call back se utilizó para dar un tiempo en lo que se crea el log y se envía la información
@@ -226,8 +233,9 @@ const postAsociacionOperadorUnidad = (request, response) => {
                     response.status(200).json(results.rows)
                 }
             } catch (error) {
-                createLog(error, "ws_consultar_tarifas")
-                response.status(404).json(error)
+                createLog(error, "ws_asociar_operador_unidad")
+                response.status(404).json({ msg: "015, “No se estableció conexión con la base de datos de monedero”" })
+
             }
 
         }
@@ -290,7 +298,8 @@ const postConsultaAdministradoresUnidades = (request, response) => {
                 }
             } catch (error) {
                 createLog(error, "ws_consultar_administradores")
-                response.status(404).json(error)
+                response.status(404).json({ msg: "015, “No se estableció conexión con la base de datos de monedero”" })
+
             }
 
         }
@@ -351,7 +360,8 @@ const postConsultaOperadorUnidadTurno = (request, response) => {
                 }
             } catch (error) {
                 createLog(error, "ws_consultar_operador_turno")
-                response.status(404).json(error)
+                response.status(404).json({ msg: "015, “No se estableció conexión con la base de datos de monedero”" })
+
             }
 
         }
@@ -410,7 +420,8 @@ const consultaOperador = (request, response) => {
                 }
             } catch (error) {
                 createLog(error, "ws_consultar_datos_operador")
-                response.status(404).json(error)
+                response.status(404).json({ msg: "015, “No se estableció conexión con la base de datos de monedero”" })
+
             }
 
         }
@@ -441,7 +452,7 @@ const registroPago = (request, response) => {
     const fechahora = request.body.fechahora
 
     // Query
-    var query = "Select * from  ws_registrar_pago(" + nivunidad + ", '"+usuario+"','"+contrasena+"','"+referenciausuario+
+    var query = "Select * from  ws_registrar_pago('" + nivunidad + "', '"+usuario+"','"+contrasena+"','"+referenciausuario+
     "',"+idservicio+
     ","+formapago+
     ","+cantidad+
@@ -451,9 +462,12 @@ const registroPago = (request, response) => {
     "','"+denominacionesentregadas+
     "','"+fechahora+"' )"
 
-
+    
+    
     // Se reemplaza las comillas doble por simples para la consulta
     query = query.replace(/["]+/g, '')
+ 
+    console.log(query)
 
     pool.query(
         query, (error, results) => {
@@ -486,7 +500,8 @@ const registroPago = (request, response) => {
                 }
             } catch (error) {
                 createLog(error, "ws_registrar_pago")
-                response.status(404).json(error)
+                response.status(404).json({ msg: "015, “No se estableció conexión con la base de datos de monedero”" })
+
             }
 
         }
@@ -549,7 +564,8 @@ const consultaCatalogoServicio = (request, response) => {
                 }
             } catch (error) {
                 createLog(error, "ws_consultar_catalogo_servicios")
-                response.status(404).json(error)
+                response.status(404).json({ msg: "015, “No se estableció conexión con la base de datos de monedero”" })
+
             }
 
         }
