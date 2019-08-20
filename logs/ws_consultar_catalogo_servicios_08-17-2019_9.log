@@ -1,0 +1,13 @@
+[
+  {
+    msg: '001, “Operación Exitosa”',
+    id_servicio: 1,
+    nombre_servicio: 'Servicio1'
+  },
+  {
+    msg: '001, “Operación Exitosa”',
+    id_servicio: 2,
+    nombre_servicio: 'Servicio2',
+    pass: 'zWjZ397C2XyQX+NuCS9lRZ0zGd5Jf0F7Wkg='
+  }
+]
