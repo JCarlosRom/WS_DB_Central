@@ -41,7 +41,7 @@ createLog = function ( results, module) { //
     fs.readdir(dir, (err, files) => {
 
 
-        var log_file = fs.createWriteStream(__dirname + '/logs/'+module+'_'+today+'_'+(files.length+1)+'.log', { flags: 'w' });
+        var log_file = fs.createWriteStream(__dirname + '/logs/ws_db_central_'+today+'.log', { flags: 'w' });
 
         log_file.write(util.format(results) + '\n');
 
@@ -198,6 +198,7 @@ const postConsultarOperadoresHabilitados = (request, response) => {
                             element.msg = aes256.encrypt(key, element.msg);
                             resultado.msg = element.msg;
                             delete element.msg;
+                            delete element.pass;
                             element.id_operador != null ? element.id_operador = aes256.encrypt(key, element.id_operador.toString()) : element.id_operador = element.id_operador;
                             element.nombre != null ? element.nombre = aes256.encrypt(key, element.nombre) : element.nombre = element.nombre;
                             
@@ -471,6 +472,7 @@ const postConsultaOperadorUnidadTurno = (request, response) => {
                             element.msg = aes256.encrypt(key, element.msg);
                             resultado.msg = element.msg;
                             delete element.msg;
+                            delete element.pass;
                             element.id_operador != null ? element.id_operador = aes256.encrypt(key, element.id_operador.toString()) : element.id_operador = element.id_operador;
                             element.nombre_operador != null ? element.nombre_operador = aes256.encrypt(key, element.nombre_operador.toString()) : element.nombre_operador = element.nombre_operador;
                             
