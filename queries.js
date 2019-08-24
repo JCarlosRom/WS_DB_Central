@@ -13,7 +13,7 @@ const pool = new Pool({
 // En la encriptación de tipos INTEGER O DOUBLE PRECISION se hace conversión a string y se encripta
 var aes256 = require('aes256');
 var key = "92AE31A79FEEB2A3";
-const encrypt=0;
+const encrypt=1;
 
 
 
@@ -60,6 +60,7 @@ createLog = function ( results, module) { //
 
 const postConsultaTarifa = (request, response)=>{
 
+    resultado={};
     // Variables de entrada
     const nivunidad = request.body.nivunidad;
     const usuario = request.body.usuario;
@@ -82,9 +83,7 @@ const postConsultaTarifa = (request, response)=>{
                 
                 if (aes256.decrypt(key, results.rows[0].pass) != contrasenadb){
                     throw "Contraseña incorrecta";
-                } else {
-                    delete results.rows[0].pass;
-                }   
+                } 
 
             
                 // Validación en caso de error
@@ -92,15 +91,16 @@ const postConsultaTarifa = (request, response)=>{
                     throw error;
                 }
             
-                // Creación de log
-                createLog(results.rows, "ws_consultar_tarifas" );
-    
+                
                 // Call back pata encriptar cada elemento de la respuesta para envío1
                 // El call back se utilizó para dar un tiempo en lo que se crea el log y se envía la información
                 if(encrypt==1){
                     setTimeout(function(){
                         results.rows.forEach(function (element) {
-                            element.msg = aes256.encrypt(key, element.msg)
+                            element.msg = aes256.encrypt(key, element.msg);
+                            resultado.msg = element.msg;
+                            delete element.msg;
+                            delete element.pass;
                             element.id_tarifa != null ? element.id_tarifa = aes256.encrypt(key, element.id_tarifa.toString()) : element.id_tarifa = element.id_tarifa;
                             element.concepto_tarifa != null ? element.concepto_tarifa = aes256.encrypt(key, element.concepto_tarifa) : element.concepto_tarifa = element.concepto_tarifa;
                             element.aire_acondicionado != null ? element.aire_acondicionado = aes256.encrypt(key, element.aire_acondicionado) : element.aire_acondicionado = element.aire_acondicionado;
@@ -109,13 +109,22 @@ const postConsultaTarifa = (request, response)=>{
                             element.segundo_descuento != null ? element.segundo_descuento = aes256.encrypt(key, element.segundo_descuento.toString()) : element.segundo_descuento = element.segundo_descuento;
                             
                         })
-                        response.status(200).json(results.rows);
-        
+                        resultado.data = results.rows;
+                        response.status(200).json(resultado);
+                        
                     }, 100);
-
+                    
                 }else{
-                    response.status(200).json(results.rows);
+                    results.rows.forEach(function (element) {
+                        resultado.msg = element.msg;
+                        delete element.msg;
+                        delete element.pass;
+                    });
+                    resultado.datos = results.rows;
+                    response.status(200).json(resultado);
                 }
+                // Creación de log
+                createLog(resultado, "ws_consultar_tarifas" );
             }catch(error){
              
             
@@ -145,6 +154,7 @@ const postConsultaTarifa = (request, response)=>{
 
 const postConsultarOperadoresHabilitados = (request, response) => {
 
+    resultado={};
     // Variables de entrada
     const nivunidad = request.body.nivunidad;
     const usuario = request.body.usuario;
@@ -179,26 +189,35 @@ const postConsultarOperadoresHabilitados = (request, response) => {
                     throw error;
                 }
 
-                // Creación de log
-                createLog(results.rows, "ws_consultar_operadores");
-
+                
                 // Call back pata encriptar cada elemento de la respuesta para envío1
                 // El call back se utilizó para dar un tiempo en lo que se crea el log y se envía la información
                 if (encrypt == 1) {
                     setTimeout(function () {
                         results.rows.forEach(function (element) {
                             element.msg = aes256.encrypt(key, element.msg);
+                            resultado.msg = element.msg;
+                            delete element.msg;
                             element.id_operador != null ? element.id_operador = aes256.encrypt(key, element.id_operador.toString()) : element.id_operador = element.id_operador;
                             element.nombre != null ? element.nombre = aes256.encrypt(key, element.nombre) : element.nombre = element.nombre;
-                          
+                            
                         })
-                        response.status(200).json(results.rows);
-
+                        resultado.data = results.rows;
+                        response.status(200).json(resultado);
+                        
                     }, 100);
-
+                    
                 } else {
-                    response.status(200).json(results.rows);
+                    results.rows.forEach(function (element) {
+                        resultado.msg = element.msg;
+                        delete element.msg;
+                        delete element.pass;
+                    });
+                    resultado.datos = results.rows;
+                    response.status(200).json(resultado);
                 }
+                // Creación de log
+                createLog(resultado, "ws_consultar_operadores");
             } catch (error) {
                 createLog(error, "ws_consultar_operadores");
                 if (error == "Contraseña incorrecta") {
@@ -223,7 +242,7 @@ const postConsultarOperadoresHabilitados = (request, response) => {
 // Creación de archivo .log : Si
 
 const postAsociacionOperadorUnidad = (request, response) => {
-
+    resultado={};
     // Variables de entrada
     const nivunidad = request.body.nivunidad;
     const idoperador = request.body.idoperador;
@@ -258,34 +277,45 @@ const postAsociacionOperadorUnidad = (request, response) => {
                     throw error;
                 }
 
-                // Creación de log
-                createLog(results.rows, "ws_asociar_operador_unidad");
-
+                
                 // Call back pata encriptar cada elemento de la respuesta para envío1
                 // El call back se utilizó para dar un tiempo en lo que se crea el log y se envía la información
                 if (encrypt == 1) {
                     setTimeout(function () {
                         results.rows.forEach(function (element) {
                             element.msg = aes256.encrypt(key, element.msg);
+                            resultado.msg = element.msg;
+                            delete element.msg;
                             element.id_tarifa != null ? element.id_tarifa = aes256.encrypt(key, element.id_tarifa.toString()) : element.id_tarifa = element.id_tarifa;
                             element.concepto_tarifa != null ? element.concepto_tarifa = aes256.encrypt(key, element.concepto_tarifa) : element.concepto_tarifa = element.concepto_tarifa;
                             element.aire_acondicionado != null ? element.aire_acondicionado = aes256.encrypt(key, element.aire_acondicionado) : element.aire_acondicionado = element.aire_acondicionado;
                             element.tarifa_total != null ? element.tarifa_total = aes256.encrypt(key, element.tarifa_total.toString()) : element.tarifa_total = element.tarifa_total;
                             element.primer_descuento != null ? element.primer_descuento = aes256.encrypt(key, element.primer_descuento.toString()) : element.primer_descuento = element.primer_descuento;
                             element.segundo_descuento != null ? element.segundo_descuento = aes256.encrypt(key, element.segundo_descuento.toString()) : element.segundo_descuento = element.segundo_descuento;
-
+                            
                         })
-                        response.status(200).json(results.rows);
-
+                        resultado.data = results.rows;
+                        response.status(200).json(resultado);
+                        
                     }, 100);
-
+                    
                 } else {
-                    response.status(200).json(results.rows);
+                    results.rows.forEach(function (element) {
+                        resultado.msg = element.msg;
+                        delete element.msg;
+                        delete element.pass;
+                    });
+                    resultado.datos = results.rows;
+                    response.status(200).json(resultado);
                 }
+
+                // Creación de log
+                createLog(resultado, "ws_asociar_operador_unidad");
+
             } catch (error) {
-
+                
                 createLog(error, "ws_asociar_operador_unidad");
-
+                
                 if (error == "Contraseña incorrecta") {
 
                     response.status(404).json({ msg: '005, “Usuario y/o contraseña inválidos”' });
@@ -310,6 +340,7 @@ const postAsociacionOperadorUnidad = (request, response) => {
 
 const postConsultaAdministradoresUnidades = (request, response) => {
 
+    resultado= {};
     // Variables de entrada
     const nivunidad = request.body.nivunidad;
     const usuario = request.body.usuario;
@@ -342,8 +373,7 @@ const postConsultaAdministradoresUnidades = (request, response) => {
                     throw error;
                 }
 
-                // Creación de log
-                createLog(results.rows, "ws_consultar_administradores");
+              
 
                 // Call back pata encriptar cada elemento de la respuesta para envío1
                 // El call back se utilizó para dar un tiempo en lo que se crea el log y se envía la información
@@ -351,18 +381,29 @@ const postConsultaAdministradoresUnidades = (request, response) => {
                     setTimeout(function () {
                         results.rows.forEach(function (element) {
                             element.msg = aes256.encrypt(key, element.msg);
+                            resultado.msg = element.msg;
+                            delete element.msg;
                             element.numero_tarjeta != null ? element.numero_tarjeta = aes256.encrypt(key, element.numero_tarjeta.toString()) : element.numero_tarjeta = element.numero_tarjeta;
                             element.nip != null ? element.nip = aes256.encrypt(key, element.nip.toString()) : element.nip = element.nip;
                             element.nombre_administrador != null ? element.nombre_administrador = aes256.encrypt(key, element.nombre_administrador) : element.nombre_administrador = element.nombre_administrador;
                          
                         })
-                        response.status(200).json(results.rows);
+                        resultado.data = results.rows;
+                        response.status(200).json(resultado);
 
                     }, 100);
 
                 } else {
-                    response.status(200).json(results.rows);
+                    results.rows.forEach(function (element) {
+                        resultado.msg = element.msg;
+                        delete element.msg;
+                        delete element.pass;
+                    });
+                    resultado.datos = results.rows;
+                    response.status(200).json(resultado);
                 }
+                // Creación de log
+                createLog(resultado, "ws_consultar_administradores");
             } catch (error) {
                 createLog(error, "ws_consultar_administradores");
             
@@ -388,7 +429,7 @@ const postConsultaAdministradoresUnidades = (request, response) => {
 // Creación de archivo .log : Si
 
 const postConsultaOperadorUnidadTurno = (request, response) => {
-
+    resultado={};
     // Variables de entrada
     const nivunidad = request.body.nivunidad;
     const usuario = request.body.usuario;
@@ -421,26 +462,36 @@ const postConsultaOperadorUnidadTurno = (request, response) => {
                     throw error;
                 }
 
-                // Creación de log
-                createLog(results.rows, "ws_consultar_operador_turno");
-
+                
                 // Call back pata encriptar cada elemento de la respuesta para envío1
                 // El call back se utilizó para dar un tiempo en lo que se crea el log y se envía la información
                 if (encrypt == 1) {
                     setTimeout(function () {
                         results.rows.forEach(function (element) {
                             element.msg = aes256.encrypt(key, element.msg);
+                            resultado.msg = element.msg;
+                            delete element.msg;
                             element.id_operador != null ? element.id_operador = aes256.encrypt(key, element.id_operador.toString()) : element.id_operador = element.id_operador;
                             element.nombre_operador != null ? element.nombre_operador = aes256.encrypt(key, element.nombre_operador.toString()) : element.nombre_operador = element.nombre_operador;
-                          
+                            
                         })
-                        response.status(200).json(results.rows);
-
+                        resultado.data = results.rows;
+                        response.status(200).json(resultado);
+                        
                     }, 100)
-
+                    
                 } else {
-                    response.status(200).json(results.rows);
+                    results.rows.forEach(function (element) {
+                        resultado.msg = element.msg;
+                        delete element.msg;
+                        delete element.pass;
+                    });
+                    resultado.datos = results.rows;
+                    response.status(200).json(resultado);
                 }
+                // Creación de log
+                createLog(results.rows, "ws_consultar_operador_turno");
+
             } catch (error) {
                 createLog(error, "ws_consultar_operador_turno");
                 if (error == "Contraseña incorrecta") {
@@ -466,6 +517,8 @@ const postConsultaOperadorUnidadTurno = (request, response) => {
 
 const consultaOperador = (request, response) => {
 
+    resultado= {};
+
     // Variables de entrada
     const idoperador = request.body.idoperador;
 
@@ -488,30 +541,41 @@ const consultaOperador = (request, response) => {
                     throw error;
                 }
 
-                // Creación de log
-                createLog(results.rows, "ws_consultar_datos_operador");
-
+                
                 // Call back pata encriptar cada elemento de la respuesta para envío1
                 // El call back se utilizó para dar un tiempo en lo que se crea el log y se envía la información
                 if (encrypt == 1) {
                     setTimeout(function () {
                         results.rows.forEach(function (element) {
                             element.msg = aes256.encrypt(key, element.msg);
+                            resultado.msg = element.msg;
+                            delete element.msg;
                             element.id_operador != null ? element.id_operador = aes256.encrypt(key, element.id_operador.toString()) : element.id_operador = element.id_operador;
                             element.nombre_operador != null ? element.nombre_operador = aes256.encrypt(key, element.nombre_operador.toString()) : element.nombre_operador = element.nombre_operador;
+                            element.licencia != null ? element.licencia = aes256.encrypt(key, element.licencia.toString()) : element.licencia = element.licencia;
+                            element.fotografia != null ? element.fotografia = aes256.encrypt(key, element.fotografia.toString()) : element.fotografia = element.fotografia;
 
                         })
-                        response.status(200).json(results.rows);
-
+                        resultado.data = results.rows;
+                        response.status(200).json(resultado);
+                        
                     }, 100);
-
+                    
                 } else {
-                    response.status(200).json(results.rows);
+                    results.rows.forEach(function (element) {
+                        resultado.msg = element.msg;
+                        delete element.msg;
+                        delete element.pass;
+                    });
+                    resultado.datos = results.rows;
+                    response.status(200).json(resultado);
                 }
+                // Creación de log
+                createLog(results.rows, "ws_consultar_datos_operador");
             } catch (error) {
                 createLog(error, "ws_consultar_datos_operador");
                 response.status(404).json({ msg: "015, “No se estableció conexión con la base de datos de monedero”" });
-
+                
             }
 
         }
@@ -526,6 +590,8 @@ const consultaOperador = (request, response) => {
 // Creación de archivo .log : Si
 
 const registroPago = (request, response) => {
+
+    resultado ={};
 
     // Variables de entrada
     const nivunidad = request.body.nivunidad;
@@ -562,7 +628,6 @@ const registroPago = (request, response) => {
         query, (error, results) => {
 
             try {
-                console.log(results.rows);
                
                 // Validación de contraseña cifraada
                 var contrasenadb = contrasena.replace(/["]+/g, '');
@@ -579,29 +644,40 @@ const registroPago = (request, response) => {
                     throw error;
                 }
 
-                // Creación de log
-                createLog(results.rows, "ws_registrar_pago");
-
+                
                 // Call back pata encriptar cada elemento de la respuesta para envío1
                 // El call back se utilizó para dar un tiempo en lo que se crea el log y se envía la información
                 if (encrypt == 1) {
                     setTimeout(function () {
                         results.rows.forEach(function (element) {
                             element.msg = aes256.encrypt(key, element.msg);
+                            resultado.msg = element.msg;
+                            delete element.msg;
                             element.id_operacion != null ? element.id_operacion = aes256.encrypt(key, element.id_operacion.toString()) : element.id_operacion = element.id_operacion;
-                           
+                            
                         })
-                        response.status(200).json(results.rows);
-
+                        resultado.data = results.rows;
+                        response.status(200).json(resultado);
+                        
                     }, 100);
-
+                    
                 } else {
-                    response.status(200).json(results.rows);
+                    
+                    results.rows.forEach(function (element) {
+                        resultado.msg = element.msg;
+                        delete element.msg;
+                        delete element.pass;
+                    });
+                    resultado.datos = results.rows;
+                    response.status(200).json(resultado);
+                    
                 }
+                // Creación de log
+                createLog(results.rows, "ws_registrar_pago");
             } catch (error) {
                 createLog(error, "ws_registrar_pago");
                 if (error == "Contraseña incorrecta") {
-
+                    
                     response.status(404).json({ msg: '005, “Usuario y/o contraseña inválidos”' });
 
                 } else {
@@ -623,11 +699,11 @@ const registroPago = (request, response) => {
 
 const consultaCatalogoServicio = (request, response) => {
 
+    var resultado={};
     // Variables de entrada
     const nivunidad = request.body.nivunidad;
     const usuario = request.body.usuario;
     const contrasena = request.body.contrasena;
-
 
     // Query
     var query = "Select * from  ws_consultar_catalogo_servicios('" + nivunidad +
@@ -648,35 +724,46 @@ const consultaCatalogoServicio = (request, response) => {
 
                 if (aes256.decrypt(key, results.rows[0].pass) != contrasenadb) {
                     throw "Contraseña incorrecta";
-                }else{
-                    delete results.rows[0].pass;
                 }
 
                 // Validación en caso de error
                 if (error) {
                     throw error;
                 }
-
-                // Creación de log
-                createLog(results.rows, "ws_consultar_catalogo_servicios");
-
+                
                 // Call back pata encriptar cada elemento de la respuesta para envío1
                 // El call back se utilizó para dar un tiempo en lo que se crea el log y se envía la información
                 if (encrypt == 1) {
                     setTimeout(function () {
                         results.rows.forEach(function (element) {
                             element.msg = aes256.encrypt(key, element.msg);
+                            resultado.msg = element.msg;
+                            delete element.msg;
                             element.id_servicio != null ? element.id_servicio = aes256.encrypt(key, element.id_servicio.toString()) : element.id_servicio = element.id_servicio;
                             element.nombre_servicio != null ? element.nombre_servicio = aes256.encrypt(key, element.nombre_servicio) : element.nombre_servicio = element.nombre_servicio;
-
+                            
+                            delete element.pass; 
                         })
-                        response.status(200).json(results.rows);
-
+                        resultado.data = results.rows;
+                        response.status(200).json(resultado);
+                        
                     }, 100);
-
+                    
                 } else {
-                    response.status(200).json(results.rows);
+                    
+                    results.rows.forEach(function(element){
+                        resultado.msg = element.msg;
+                        delete element.msg;
+                        delete element.pass; 
+                    });
+                    resultado.datos= results.rows;
+                    response.status(200).json(resultado);
+                    
+                    
                 }
+
+                // Creación de log
+                createLog(results.rows, "ws_consultar_catalogo_servicios");
             } catch (error) {
                 createLog(error, "ws_consultar_catalogo_servicios");
                 if (error == "Contraseña incorrecta") {

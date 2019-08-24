@@ -6,3 +6,5 @@ npm-debug.log
 package-lock.json
 test/*.log
 .vscode/
+.env
+logs
