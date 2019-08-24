@@ -5,7 +5,7 @@
 -- Dumped from database version 10.9
 -- Dumped by pg_dump version 11.2
 
--- Started on 2019-08-20 15:48:21
+-- Started on 2019-08-24 17:20:29
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -1106,7 +1106,7 @@ $$;
 ALTER FUNCTION public.sp_usuarios_get(in_id_usuario integer) OWNER TO postgres;
 
 --
--- TOC entry 319 (class 1255 OID 35103)
+-- TOC entry 320 (class 1255 OID 35103)
 -- Name: ws_asociar_operador_unidad(character varying, integer, character varying, character varying); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -1117,6 +1117,7 @@ DECLARE
     acceso character varying := '';
     unidad_activa INTEGER := 0;
     id_selected_unidad INTEGER := 0;
+	operador_valido INTEGER :=0;
 
 BEGIN
      SELECT contrasena
@@ -1141,11 +1142,21 @@ BEGIN
                 AND eliminado = 0;
         
         IF unidad_activa < 1 THEN
-            INSERT INTO 
+			select id_operador into operador_valido from operadores
+			where id_operador =in_id_operador;
+			
+			IF NOT FOUND THEN 
+				RETURN QUERY
+				SELECT '“El operador no existe”'::CHARACTER VARYING, acceso::character varying;
+			ELSE
+				 INSERT INTO 
                 unidades_operadores
                 VALUES (id_selected_unidad,in_niv,in_id_operador,NOW(),0);
 			RETURN QUERY
             SELECT '006, “Operador asociado a unidad satisfactoriamente”'::CHARACTER VARYING, acceso::character varying;
+			END IF;
+			
+           
         ELSE
 			RETURN QUERY
             SELECT '007, “La asociación del operador a la unidad ha fallado”'::CHARACTER VARYING, acceso::character varying;
@@ -1159,7 +1170,7 @@ $$;
 ALTER FUNCTION public.ws_asociar_operador_unidad(in_niv character varying, in_id_operador integer, in_usuario character varying, in_password character varying) OWNER TO postgres;
 
 --
--- TOC entry 320 (class 1255 OID 35104)
+-- TOC entry 318 (class 1255 OID 35104)
 -- Name: ws_consultar_administradores(character varying, character varying, character varying); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -1308,7 +1319,7 @@ $$;
 ALTER FUNCTION public.ws_consultar_datos_operador(in_id_operador integer) OWNER TO postgres;
 
 --
--- TOC entry 321 (class 1255 OID 35105)
+-- TOC entry 319 (class 1255 OID 35105)
 -- Name: ws_consultar_operador_turno(character varying, character varying, character varying); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -1365,7 +1376,7 @@ $$;
 ALTER FUNCTION public.ws_consultar_operador_turno(in_niv character varying, in_usuario character varying, in_password character varying) OWNER TO postgres;
 
 --
--- TOC entry 318 (class 1255 OID 35102)
+-- TOC entry 317 (class 1255 OID 35102)
 -- Name: ws_consultar_operadores(character varying, character varying, character varying); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -1415,7 +1426,7 @@ $$;
 ALTER FUNCTION public.ws_consultar_operadores(in_niv character varying, in_usuario character varying, in_password character varying) OWNER TO postgres;
 
 --
--- TOC entry 317 (class 1255 OID 35100)
+-- TOC entry 321 (class 1255 OID 35100)
 -- Name: ws_consultar_tarifas(character varying, character varying, character varying); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -1475,7 +1486,7 @@ BEGIN
                     null::DOUBLE PRECISION;
             ELSE
                 RETURN QUERY
-                SELECT
+                SELECT distinct
                     '001, "“Operación Exitosa"'::CHARACTER VARYING,
                     t.id_tarifa::INTEGER,
                     t.concepto::CHARACTER VARYING,
@@ -3390,6 +3401,7 @@ INSERT INTO public.recarga (id_recarga, folio, id_unidad, id_operador, fecha_rec
 --
 
 INSERT INTO public.tarifas (id_tarifa, concepto, aire_acondicionado, tarifa_ac, tarifa_base, tarifa_total, eliminado) VALUES (1, 'Concepto1', 1, 2, 6, 8, 0);
+INSERT INTO public.tarifas (id_tarifa, concepto, aire_acondicionado, tarifa_ac, tarifa_base, tarifa_total, eliminado) VALUES (2, 'Concepto 2', 1, 2, 6, 8, 0);
 
 
 --
@@ -3403,6 +3415,9 @@ INSERT INTO public.transaccion_local (identificador_dispositivo, numero_tarjeta,
 INSERT INTO public.transaccion_local (identificador_dispositivo, numero_tarjeta, forma_pago, id_servicio, concepto, cantidad, importe, total, fecha_hora, id_tarjeta, eliminado, denominacion_recibida, denominacion_entregada, id_transaccion_local) VALUES (NULL, NULL, 0, 1, NULL, 15, 3, 18, '2019-08-18', NULL, 0, 'b20_p=1', 'm2_p=1', 10);
 INSERT INTO public.transaccion_local (identificador_dispositivo, numero_tarjeta, forma_pago, id_servicio, concepto, cantidad, importe, total, fecha_hora, id_tarjeta, eliminado, denominacion_recibida, denominacion_entregada, id_transaccion_local) VALUES (NULL, NULL, 0, 1, NULL, 15, 3, 18, '2019-08-18', NULL, 0, 'b20_p=1', 'm2_p=1', 11);
 INSERT INTO public.transaccion_local (identificador_dispositivo, numero_tarjeta, forma_pago, id_servicio, concepto, cantidad, importe, total, fecha_hora, id_tarjeta, eliminado, denominacion_recibida, denominacion_entregada, id_transaccion_local) VALUES (NULL, NULL, 0, 1, NULL, 15, 3, 18, '2019-08-18', NULL, 0, 'b20_p=1', 'm2_p=1', 12);
+INSERT INTO public.transaccion_local (identificador_dispositivo, numero_tarjeta, forma_pago, id_servicio, concepto, cantidad, importe, total, fecha_hora, id_tarjeta, eliminado, denominacion_recibida, denominacion_entregada, id_transaccion_local) VALUES (NULL, NULL, 0, 1, NULL, 15, 3, 18, '2019-08-22', NULL, 0, 'b20_p=1', 'm2_p=1', 13);
+INSERT INTO public.transaccion_local (identificador_dispositivo, numero_tarjeta, forma_pago, id_servicio, concepto, cantidad, importe, total, fecha_hora, id_tarjeta, eliminado, denominacion_recibida, denominacion_entregada, id_transaccion_local) VALUES (NULL, NULL, 0, 1, NULL, 15, 3, 18, '2019-08-23', NULL, 0, 'b20_p=1', 'm2_p=1', 14);
+INSERT INTO public.transaccion_local (identificador_dispositivo, numero_tarjeta, forma_pago, id_servicio, concepto, cantidad, importe, total, fecha_hora, id_tarjeta, eliminado, denominacion_recibida, denominacion_entregada, id_transaccion_local) VALUES (NULL, NULL, 0, 1, NULL, 15, 3, 18, '2019-08-23', NULL, 0, 'b20_p=1', 'm2_p=1', 15);
 
 
 --
@@ -3420,8 +3435,6 @@ INSERT INTO public.unidades (id_unidad, modelo, placas, kilometraje, capacidad, 
 -- Data for Name: unidades_operadores; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.unidades_operadores (id_unidad, niv, id_operador, fecha_asignacion, eliminado, id_unidad_operador) VALUES (1, '1', 1, '2019-07-29', 0, 3);
-INSERT INTO public.unidades_operadores (id_unidad, niv, id_operador, fecha_asignacion, eliminado, id_unidad_operador) VALUES (1, '1', 3, '2019-07-29', 0, 4);
 
 
 --
@@ -3907,7 +3920,7 @@ SELECT pg_catalog.setval('public.tramos_seq', 1, false);
 -- Name: transaccion_local_id_transaccion_local_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.transaccion_local_id_transaccion_local_seq', 12, true);
+SELECT pg_catalog.setval('public.transaccion_local_id_transaccion_local_seq', 15, true);
 
 
 --
@@ -3952,7 +3965,7 @@ SELECT pg_catalog.setval('public.unidades_id_unidad_seq', 1, false);
 -- Name: unidades_operadores_id_unidad_operador_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.unidades_operadores_id_unidad_operador_seq', 4, true);
+SELECT pg_catalog.setval('public.unidades_operadores_id_unidad_operador_seq', 7, true);
 
 
 --
@@ -4180,7 +4193,7 @@ ALTER TABLE ONLY public.usuarios
     ADD CONSTRAINT usuarios_pkey PRIMARY KEY (id_usuario);
 
 
--- Completed on 2019-08-20 15:48:29
+-- Completed on 2019-08-24 17:20:47
 
 --
 -- PostgreSQL database dump complete
