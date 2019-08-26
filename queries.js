@@ -13,15 +13,11 @@ const pool = new Pool({
 // En la encriptación de tipos INTEGER O DOUBLE PRECISION se hace conversión a string y se encripta
 var aes256 = require('aes256');
 var key = "92AE31A79FEEB2A3";
-const encrypt=1;
+const encrypt=0;
 
 
-
-
-
-
-// Función para crear logs de peticiones: createLog(resultado, modulo de petición)
-createLog = function ( results, module) { //
+// Función para crear logs de errores
+createLog = function (results, valoresEntrada, module) { //
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, '0');
     var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -40,12 +36,70 @@ createLog = function ( results, module) { //
 
     fs.readdir(dir, (err, files) => {
 
+        var log = __dirname + '/logs/ws_db_central_' + today + '.log';
 
-        var log_file = fs.createWriteStream(__dirname + '/logs/ws_db_central_'+today+'.log', { flags: 'w' });
+        if (!fs.existsSync(log)) {
 
-        log_file.write(util.format(results) + '\n');
+            var log_file = fs.createWriteStream(__dirname + '/logs/ws_db_central_' + today + '.log', { flags: 'w' });
+            log_file.write(util.format(module) + '\n');
+            log_file.write(util.format("Valores de entrada") + '\n');
+            log_file.write(util.format(valoresEntrada) + '\n');
+            log_file.write(util.format("Valores de salida") + '\n');
+            log_file.write(util.format(results) + '\n');
+        } else {
+            valoresEntradaOW = util.format(module) + '\n' + util.format("Valores de entrada") + '\n' + util.format(valoresEntrada) + '\n' + util.format("Valores de salida") + '\n' + util.format(results) + '\n';
+            fs.appendFile(log, valoresEntradaOW + '\n', function (err) {
+                if (err) throw err;
 
-    
+            });
+        }
+
+
+
+    });
+
+};
+
+
+// Función para crear logs de peticiones: createLog(resultado, modulo de petición)
+createLogerr = function ( results, valoresEntrada, module) { //
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+
+    today = mm + '-' + dd + '-' + yyyy;
+    var fs = require('fs');
+    var util = require('util');
+
+    const dir = './logserr';
+
+    if (!fs.existsSync(dir)) {
+        fs.mkdirSync(dir);
+    }
+    // Nombre de los logs Instancia del sp + Fecha actual + Número de archivo (Para evitar sobrescribir)
+
+    fs.readdir(dir, (err, files) => {
+
+        var log = __dirname + '/logserr/ws_db_central_' + today + '.log';
+
+        if(!fs.existsSync(log)){
+            
+            var log_file = fs.createWriteStream(__dirname + '/logserr/ws_db_central_'+today+'.log', { flags: 'w' });
+            log_file.write(util.format(module) + '\n');
+            log_file.write(util.format("Valores de entrada") + '\n');
+            log_file.write(util.format(valoresEntrada) + '\n');
+            log_file.write(util.format("Valores de salida") + '\n');
+            log_file.write(util.format(results) + '\n');
+        }else{
+            valoresEntradaOW = util.format(module) + '\n' +util.format("Valores de entrada") + '\n' + util.format(valoresEntrada) + '\n' + util.format("Valores de salida") + '\n' + util.format(results) + '\n';
+            fs.appendFile(log, valoresEntradaOW + '\n', function (err) {
+                if (err) throw err;
+                
+            }); 
+        }
+        
+       
 
     });
 
@@ -60,11 +114,17 @@ createLog = function ( results, module) { //
 
 const postConsultaTarifa = (request, response)=>{
 
+    valoresEntrada={};
     resultado={};
     // Variables de entrada
+    
     const nivunidad = request.body.nivunidad;
+    valoresEntrada.nivunidad=nivunidad;
     const usuario = request.body.usuario;
+    valoresEntrada.usuario = usuario;
     const contrasena = request.body.contrasena;
+    valoresEntrada.contrasena = contrasena; 
+    
 
     // Query
     var query = "Select * from  ws_consultar_tarifas('"+nivunidad+
@@ -111,7 +171,9 @@ const postConsultaTarifa = (request, response)=>{
                         })
                         resultado.data = results.rows;
                         response.status(200).json(resultado);
-                        
+                        // Creación de log
+                        createLog(resultado, valoresEntrada, "ws_consultar_tarifas");
+                     
                     }, 100);
                     
                 }else{
@@ -121,14 +183,14 @@ const postConsultaTarifa = (request, response)=>{
                         delete element.pass;
                     });
                     resultado.datos = results.rows;
-                    response.status(200).json(resultado);
+                    response.status(200).json(resultado);                    
+                    // Creación de log
+                    createLog(resultado, valoresEntrada, "ws_consultar_tarifas");
                 }
-                // Creación de log
-                createLog(resultado, "ws_consultar_tarifas" );
             }catch(error){
              
             
-                createLog(error, "ws_consultar_tarifas");
+                createLogerr(error, valoresEntrada, "ws_consultar_tarifas");
                 if (error == "Contraseña incorrecta"){
 
                     response.status(404).json({ msg: '005, “Usuario y/o contraseña inválidos”' });
@@ -154,12 +216,15 @@ const postConsultaTarifa = (request, response)=>{
 
 const postConsultarOperadoresHabilitados = (request, response) => {
 
+    valoresEntrada={};
     resultado={};
     // Variables de entrada
     const nivunidad = request.body.nivunidad;
+    valoresEntrada.nivunidad = nivunidad;
     const usuario = request.body.usuario;
+    valoresEntrada.usuario= usuario;
     const contrasena = request.body.contrasena;
-
+    valoresEntrada.contrasena=contrasena;
 
     // Query
     var query = "Select * from  ws_consultar_operadores('" + nivunidad +
@@ -205,6 +270,8 @@ const postConsultarOperadoresHabilitados = (request, response) => {
                         })
                         resultado.data = results.rows;
                         response.status(200).json(resultado);
+                        // Creación de log
+                        createLog(resultado,valoresEntrada ,"ws_consultar_operadores");
                         
                     }, 100);
                     
@@ -216,11 +283,12 @@ const postConsultarOperadoresHabilitados = (request, response) => {
                     });
                     resultado.datos = results.rows;
                     response.status(200).json(resultado);
+                    // Creación de log
+                    createLog(resultado, valoresEntrada, "ws_consultar_operadores");
                 }
-                // Creación de log
-                createLog(resultado, "ws_consultar_operadores");
+              
             } catch (error) {
-                createLog(error, "ws_consultar_operadores");
+                createLogerr(error, valoresEntrada,"ws_consultar_operadores");
                 if (error == "Contraseña incorrecta") {
 
                     response.status(404).json({ msg: '005, “Usuario y/o contraseña inválidos”' });
@@ -243,13 +311,18 @@ const postConsultarOperadoresHabilitados = (request, response) => {
 // Creación de archivo .log : Si
 
 const postAsociacionOperadorUnidad = (request, response) => {
+
+    valoresEntrada={};
     resultado={};
     // Variables de entrada
     const nivunidad = request.body.nivunidad;
+    valoresEntrada.nivunidad = niv_unidad;
     const idoperador = request.body.idoperador;
+    valoresEntrada.idoperador = idoperador;
     const usuario = request.body.usuario;
+    valoresEntrada.usuario= usuario; 
     const contrasena = request.body.contrasena;
-
+    valoresEntrada.contrasena = contrasena; 
 
     // Query
     var query = "Select * from  ws_asociar_operador_unidad('" + nivunidad +
@@ -297,6 +370,8 @@ const postAsociacionOperadorUnidad = (request, response) => {
                         })
                         resultado.data = results.rows;
                         response.status(200).json(resultado);
+                        // Creación de log
+                        createLog(resultado, valoresEntrada, "ws_asociar_operador_unidad");
                         
                     }, 100);
                     
@@ -308,14 +383,15 @@ const postAsociacionOperadorUnidad = (request, response) => {
                     });
                     resultado.datos = results.rows;
                     response.status(200).json(resultado);
+                    // Creación de log
+                    createLog(resultado, valoresEntrada, "ws_asociar_operador_unidad");
                 }
 
-                // Creación de log
-                createLog(resultado, "ws_asociar_operador_unidad");
+             
 
             } catch (error) {
                 
-                createLog(error, "ws_asociar_operador_unidad");
+                createLogerr(error, valoresEntrada,"ws_asociar_operador_unidad");
                 
                 if (error == "Contraseña incorrecta") {
 
@@ -340,13 +416,15 @@ const postAsociacionOperadorUnidad = (request, response) => {
 // Creación de archivo .log : Si
 
 const postConsultaAdministradoresUnidades = (request, response) => {
-
+    valoresEntrada = {};
     resultado= {};
     // Variables de entrada
     const nivunidad = request.body.nivunidad;
+    valoresEntrada.niv_unidad = nivunidad;
     const usuario = request.body.usuario;
+    valoresEntrada.usuario = usuario;
     const contrasena = request.body.contrasena;
-
+    valoresEntrada.contrasena = contrasena; 
 
     // Query
     var query = "Select * from  ws_consultar_administradores('" + nivunidad +
@@ -391,6 +469,8 @@ const postConsultaAdministradoresUnidades = (request, response) => {
                         })
                         resultado.data = results.rows;
                         response.status(200).json(resultado);
+                        // Creación de log
+                        createLog(resultado, valoresEntrada, "ws_consultar_administradores" );
 
                     }, 100);
 
@@ -402,11 +482,12 @@ const postConsultaAdministradoresUnidades = (request, response) => {
                     });
                     resultado.datos = results.rows;
                     response.status(200).json(resultado);
+                    // Creación de log
+                    createLog(resultado, valoresEntrada, "ws_consultar_administradores");
                 }
-                // Creación de log
-                createLog(resultado, "ws_consultar_administradores");
+         
             } catch (error) {
-                createLog(error, "ws_consultar_administradores");
+                createLogerr(error, valoresEntrada, "ws_consultar_administradores");
             
                 if (error == "Contraseña incorrecta") {
 
@@ -431,11 +512,14 @@ const postConsultaAdministradoresUnidades = (request, response) => {
 
 const postConsultaOperadorUnidadTurno = (request, response) => {
     resultado={};
+    valoresEntrada = {};
     // Variables de entrada
     const nivunidad = request.body.nivunidad;
+    valoresEntrada.nivunidad = nivunidad;
     const usuario = request.body.usuario;
+    valoresEntrada.usuario = usuario;
     const contrasena = request.body.contrasena;
-
+    valoresEntrada.contrasena = contrasena;
 
     // Query
     var query = "Select * from  ws_consultar_operador_turno('" + nivunidad +
@@ -479,6 +563,8 @@ const postConsultaOperadorUnidadTurno = (request, response) => {
                         })
                         resultado.data = results.rows;
                         response.status(200).json(resultado);
+                        // Creación de log
+                        createLog(results.rows, valoresEntrada, "ws_consultar_operador_turno");
                         
                     }, 100)
                     
@@ -490,12 +576,13 @@ const postConsultaOperadorUnidadTurno = (request, response) => {
                     });
                     resultado.datos = results.rows;
                     response.status(200).json(resultado);
+                    // Creación de log
+                    createLog(results.rows, valoresEntrada, "ws_consultar_operador_turno");
                 }
-                // Creación de log
-                createLog(results.rows, "ws_consultar_operador_turno");
+                
 
             } catch (error) {
-                createLog(error, "ws_consultar_operador_turno");
+                createLogerr(error, valoresEntrada, "ws_consultar_operador_turno");
                 if (error == "Contraseña incorrecta") {
 
                     response.status(404).json({ msg: '005, “Usuario y/o contraseña inválidos”' });
@@ -519,11 +606,12 @@ const postConsultaOperadorUnidadTurno = (request, response) => {
 
 const consultaOperador = (request, response) => {
 
+    valoresEntrada = {};
     resultado= {};
 
     // Variables de entrada
     const idoperador = request.body.idoperador;
-
+    valoresEntrada.idoperador = idoperador;
 
     // Query
     var query = "Select * from  ws_consultar_datos_operador(" + idoperador +")";
@@ -560,6 +648,8 @@ const consultaOperador = (request, response) => {
                         })
                         resultado.data = results.rows;
                         response.status(200).json(resultado);
+                        // Creación de log
+                        createLog(resultado, valoresEntrada, "ws_consultar_datos_operador" );
                         
                     }, 100);
                     
@@ -571,11 +661,12 @@ const consultaOperador = (request, response) => {
                     });
                     resultado.datos = results.rows;
                     response.status(200).json(resultado);
+                    // Creación de log
+                    createLog(resultado, valoresEntrada, "ws_consultar_datos_operador");
                 }
-                // Creación de log
-                createLog(results.rows, "ws_consultar_datos_operador");
+               
             } catch (error) {
-                createLog(error, "ws_consultar_datos_operador");
+                createLogerr(error, valoresEntrada, "ws_consultar_datos_operador");
                 response.status(404).json({ msg: "015, “No se estableció conexión con la base de datos de monedero”" });
                 
             }
@@ -593,21 +684,34 @@ const consultaOperador = (request, response) => {
 
 const registroPago = (request, response) => {
 
+    valoresEntrada = {};
     resultado ={};
 
     // Variables de entrada
     const nivunidad = request.body.nivunidad;
+    valoresEntrada.niv_unidad = nivunidad;
     const usuario = request.body.usuario;
+    valoresEntrada.usuario= usuario;
     const contrasena = request.body.contrasena;
+    valoresEntrada.contrasena = contrasena;
     const referenciausuario = request.body.referenciausuario;
+    valoresEntrada.referenciausuario = referenciausuario; 
     const idservicio = request.body.idservicio;
+    valoresEntrada.idservicio = idservicio;
     const formapago = request.body.formapago;
+    valoresEntrada.formapago  = formapago;
     const cantidad = request.body.cantidad;
+    valoresEntrada.cantidad = cantidad;
     const importe = request.body.importe;
+    valoresEntrada.importe = importe; 
     const total = request.body.total;
+    valoresEntrada.total = total; 
     const denominacionesrecibidas = request.body.denominacionesrecibidas;
+    valoresEntrada.denominacionesrecibidas = denominacionesrecibidas;
     const denominacionesentregadas = request.body.denominacionesentregadas;
+    valoresEntrada.denominacionesentregadas = denominacionesentregadas;
     const fechahora = request.body.fechahora;
+    valoresEntrada.fechahora = fechahora;
 
     // Query
     var query = "Select * from  ws_registrar_pago('" + nivunidad + "', '"+usuario+"','"+contrasena+"','"+referenciausuario+
@@ -660,6 +764,8 @@ const registroPago = (request, response) => {
                         })
                         resultado.data = results.rows;
                         response.status(200).json(resultado);
+                        // Creación de log
+                        createLog(resultado, valoresEntrada, "ws_registrar_pago" );
                         
                     }, 100);
                     
@@ -672,12 +778,13 @@ const registroPago = (request, response) => {
                     });
                     resultado.datos = results.rows;
                     response.status(200).json(resultado);
+                    // Creación de log
+                    createLog(resultado, valoresEntrada, "ws_registrar_pago");
                     
                 }
-                // Creación de log
-                createLog(results.rows, "ws_registrar_pago");
+                
             } catch (error) {
-                createLog(error, "ws_registrar_pago");
+                createLogerr(error, valoresEntrada, "ws_registrar_pago" );
                 if (error == "Contraseña incorrecta") {
                     
                     response.status(404).json({ msg: '005, “Usuario y/o contraseña inválidos”' });
@@ -701,12 +808,15 @@ const registroPago = (request, response) => {
 
 const consultaCatalogoServicio = (request, response) => {
 
+    var valoresEntrada = {};
     var resultado={};
     // Variables de entrada
     const nivunidad = request.body.nivunidad;
+    valoresEntrada.niv_unidad= nivunidad;
     const usuario = request.body.usuario;
+    valoresEntrada.usuario = usuario;
     const contrasena = request.body.contrasena;
-
+    valoresEntrada.contrasena= contrasena;
     // Query
     var query = "Select * from  ws_consultar_catalogo_servicios('" + nivunidad +
         "','" + usuario +
@@ -748,6 +858,8 @@ const consultaCatalogoServicio = (request, response) => {
                         })
                         resultado.data = results.rows;
                         response.status(200).json(resultado);
+                        // Creación de log
+                        createLog(resultado, valoresEntrada, "ws_consultar_catalogo_servicios" );
                         
                     }, 100);
                     
@@ -760,14 +872,14 @@ const consultaCatalogoServicio = (request, response) => {
                     });
                     resultado.datos= results.rows;
                     response.status(200).json(resultado);
-                    
-                    
+                    // Creación de log
+                    createLog(resultado, valoresEntrada, "ws_consultar_catalogo_servicios");
+                
                 }
 
-                // Creación de log
-                createLog(results.rows, "ws_consultar_catalogo_servicios");
+                
             } catch (error) {
-                createLog(error, "ws_consultar_catalogo_servicios");
+                createLogerr(error, valoresEntrada, "ws_consultar_catalogo_servicios");
                 if (error == "Contraseña incorrecta") {
 
                     response.status(404).json({ msg: '005, “Usuario y/o contraseña inválidos”' });
