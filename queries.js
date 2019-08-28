@@ -462,9 +462,7 @@ const postConsultaAdministradoresUnidades = (request, response) => {
                             element.msg = aes256.encrypt(key, element.msg);
                             resultado.msg = element.msg;
                             delete element.msg;
-                            element.numero_tarjeta != null ? element.numero_tarjeta = aes256.encrypt(key, element.numero_tarjeta.toString()) : element.numero_tarjeta = element.numero_tarjeta;
-                            element.nip != null ? element.nip = aes256.encrypt(key, element.nip.toString()) : element.nip = element.nip;
-                            element.nombre_administrador != null ? element.nombre_administrador = aes256.encrypt(key, element.nombre_administrador) : element.nombre_administrador = element.nombre_administrador;
+                            
                          
                         })
                         resultado.data = results.rows;
@@ -934,7 +932,5 @@ module.exports = {
     registroPago,
     consultaCatalogoServicio,
     consultaWebService
-    
-    
 
 }
